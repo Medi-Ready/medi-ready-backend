@@ -1,20 +1,22 @@
-const path = require("path");
-const logger = require("morgan");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
 const createError = require("http-errors");
 const cookieParser = require("cookie-parser");
 
-const indexRouter = require("./routes/index");
-
 const app = express();
+const initLoader = require("./loaders");
+const connectSequelize = require("./config/db");
 
-app.use(logger("dev"));
+initLoader(app);
+connectSequelize();
+
+const index = require("./routes/index");
+
 app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
+app.use("/", index);
 
 app.use((req, res, next) => {
   next(createError(404));
