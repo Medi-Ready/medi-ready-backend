@@ -1,0 +1,95 @@
+[
+  {
+    "medicine_id": "196200034",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "medicine_id": "199806423",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "medicine_id": "196900058",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "medicine_id": "200402866",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "medicine_id": "197600722",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "medicine_id": "197900171",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "medicine_id": "197900411",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "medicine_id": "199400833",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "medicine_id": "199400871",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "medicine_id": "199401186",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "medicine_id": "199401848",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "medicine_id": "199500507",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "medicine_id": "199801258",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "medicine_id": "199801507",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "medicine_id": "199802190",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "medicine_id": "199802387",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+
+  {
+    "medicine_id": "199803082",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+  {
+    "medicine_id": "199806820",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+  {
+    "medicine_id": "199900528",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "medicine_id": "199901516",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "medicine_id": "199901519",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "medicine_id": "200001519",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "medicine_id": "200002388",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  }
+]

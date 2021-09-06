@@ -1,0 +1,18 @@
+[
+  {
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "alarm_id": "7b995606-4ff8-4afd-a792-570adf57956e",
+    "morning": "09:00",
+    "lunch": "12:00",
+    "dinner": "18:00",
+    "before_bed": "21:00"
+  },
+  {
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "alarm_id": "205333bd-4e72-4675-a3e9-f32b88b890ef",
+    "morning": "10:00",
+    "lunch": "14:00",
+    "dinner": "19:00",
+    "before_bed": "22:00"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "fk_user_id": "44ad92ac-3908-4875-bbe4-8f9c14244e77",
+    "patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f"
+  },
+  {
+    "fk_user_id": "2fcca395-f937-43a3-bf81-c1d7081b1429",
+    "patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a"
+  }
+]

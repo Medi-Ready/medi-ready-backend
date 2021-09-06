@@ -1,0 +1,14 @@
+[
+  {
+    "pharmacist_id": "fc71a5c4-3597-4788-bd54-54e0244c3a90",
+    "fk_user_id": "8d6e5d9d-dabe-4216-bab3-c9fd4071cf20",
+    "pharmacy_name": "lej Pharmacy",
+    "pharmacy_address": "1496 Hugh Inlet, Lake Jeremiemouth"
+  },
+  {
+    "pharmacist_id": "7bcd19ca-2b26-43de-b43c-7dcd04924843",
+    "fk_user_id": "df3f0d0c-e45d-47f0-8ffd-fbf807ac11c7",
+    "pharmacy_name": "bovu Pharmacy",
+    "pharmacy_address": "777 Cheyanne River, East Jovanimouth"
+  }
+]
