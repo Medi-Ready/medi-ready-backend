@@ -19,7 +19,6 @@ const User = (sequelize, DataTypes) => {
       },
       email: {
         type: DataTypes.STRING(30),
-        unique: true,
         validate: {
           isEmail: true,
         },
