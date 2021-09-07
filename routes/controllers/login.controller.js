@@ -6,11 +6,12 @@ const userService = require("../../services/user.service");
 exports.login = async (req, res, next) => {
   try {
     const userData = req.body;
-    const user = await userService.findUser(userData);
 
     if (!userData) {
       throw createError(400, "Invalid user data");
     }
+
+    const user = await userService.findUser(userData);
 
     if (user) {
       const token = encode(userData);

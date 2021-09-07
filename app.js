@@ -12,11 +12,11 @@ const connectSequelize = require("./config/db");
 initLoader(app);
 connectSequelize();
 
-const indexRouter = require("./routes/index");
+const index = require("./routes/index");
 
 app.use(cookieParser());
 
-app.use("/", indexRouter);
+app.use("/", index);
 
 app.use((req, res, next) => {
   next(createError(404));
