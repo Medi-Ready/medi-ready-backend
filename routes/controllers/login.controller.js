@@ -31,12 +31,16 @@ exports.login = async (req, res, next) => {
         token,
       });
     }
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
 exports.logout = async (req, res, next) => {
   res.clearCookie("token");
   res.json({ result: "logout success" });
+};
+
+exports.authorize = async (req, res, next) => {
+  res.json({ result: "authorized", user: req.userInfo });
 };
