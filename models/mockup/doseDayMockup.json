@@ -1,0 +1,90 @@
+[
+  {
+    "dose_day_id": "6f2eca22-daae-4ede-9b4c-d60d9b144a1f",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf",
+    "mon": true,
+    "tue": true,
+    "thr": true,
+    "wed": false,
+    "fri": false,
+    "sat": false,
+    "sun": false
+  },
+  {
+    "dose_day_id": "4bccdf60-c293-421e-9bb4-0624cdf45ecf",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7",
+    "mon": true,
+    "tue": true,
+    "thr": true,
+    "wed": false,
+    "fri": false,
+    "sat": false,
+    "sun": false
+  },
+  {
+    "dose_day_id": "77ed1897-363c-4017-9b2a-de7af4c82e1b",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988",
+    "mon": false,
+    "tue": false,
+    "thr": false,
+    "wed": true,
+    "fri": true,
+    "sat": true,
+    "sun": true
+  },
+  {
+    "dose_day_id": "1c1f4435-df3b-406d-9690-955ae88fef21",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0",
+    "mon": false,
+    "tue": true,
+    "thr": true,
+    "wed": true,
+    "fri": false,
+    "sat": false,
+    "sun": false
+  },
+  {
+    "dose_day_id": "d589265b-923e-4868-bc55-69a0db55570c",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5",
+    "mon": true,
+    "tue": true,
+    "thr": true,
+    "wed": true,
+    "fri": false,
+    "sat": false,
+    "sun": false
+  },
+  {
+    "dose_day_id": "3be44481-a978-4edc-aacd-35b4715c40df",
+    "fk_prescription_id": "063df4e3-d78c-4efb-9105-37d575676e98",
+    "mon": false,
+    "tue": false,
+    "thr": false,
+    "wed": false,
+    "fri": false,
+    "sat": true,
+    "sun": true
+  },
+  {
+    "dose_day_id": "b80d93db-ac6b-4052-b0eb-168ae5ee7c03",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e",
+    "mon": true,
+    "tue": false,
+    "thr": false,
+    "wed": false,
+    "fri": true,
+    "sat": true,
+    "sun": true
+  },
+  {
+    "dose_day_id": "1eb6df02-47b6-4c92-a65b-a9e06408a87d",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7",
+    "mon": false,
+    "tue": false,
+    "thr": false,
+    "wed": false,
+    "fri": false,
+    "sat": false,
+    "sun": false
+  }
+]

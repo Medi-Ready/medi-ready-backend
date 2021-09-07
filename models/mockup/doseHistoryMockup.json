@@ -1,0 +1,402 @@
+[
+  {
+    "dose_history_id": "ab73082e-f769-4632-89bb-00082a6c956a",
+    "date": "2021-09-07",
+    "morning": true,
+    "lunch": true,
+    "dinner": true,
+    "before_bed": true,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "dose_history_id": "4b6c2de1-d9df-43a8-bfb3-25e48ff7f0dc",
+    "date": "2021-09-08",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "dose_history_id": "b3c238d6-8f67-4d01-92f8-8e990e46df64",
+    "date": "2021-09-09",
+    "morning": true,
+    "lunch": true,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "dose_history_id": "787d4e54-7a64-4913-b579-6a23874e1225",
+    "date": "2021-09-10",
+    "morning": false,
+    "lunch": true,
+    "dinner": true,
+    "before_bed": true,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "dose_history_id": "71975b74-f0f0-46e4-b977-e9b1a562b2c6",
+    "date": "2021-09-11",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7f0652b2-b858-4bb8-bd56-3fa64595dbcf"
+  },
+  {
+    "dose_history_id": "71f420a6-e22a-442f-8b1b-9f2bc3b2516b",
+    "date": "2021-09-07",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "dose_history_id": "f7e871a6-396e-4f7b-b0ba-5e54c7fcb361",
+    "date": "2021-09-08",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "dose_history_id": "5a93848a-3f65-447b-8cbb-9011cb480849",
+    "date": "2021-09-09",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "dose_history_id": "8f3ded7e-0f66-4267-b1fd-107d3521a2c3",
+    "date": "2021-09-10",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "dose_history_id": "898d33a7-d4a8-4e9a-bc67-7ac78dfaaf0d",
+    "date": "2021-09-11",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "b5be93ca-8637-49dc-a688-57aa95c292d7"
+  },
+  {
+    "dose_history_id": "c6b0816e-158c-4fdb-bd3d-c94fe97371f5",
+    "date": "2021-09-07",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "dose_history_id": "fd658850-3cab-4733-88cf-5c0ac7f0529d",
+    "date": "2021-09-08",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "dose_history_id": "8bd0b043-51a0-4064-a545-7923e3959051",
+    "date": "2021-09-09",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "dose_history_id": "7ba7f2ed-7835-468e-abcb-b57ca6b6fc07",
+    "date": "2021-09-10",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "dose_history_id": "8e2f3eeb-7f5b-4ab6-9e24-7d7a93d784c8",
+    "date": "2021-09-11",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988"
+  },
+  {
+    "dose_history_id": "943b97a4-8c93-4974-a78d-60febe61c64e",
+    "date": "2021-09-07",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "dose_history_id": "15aa3be9-db9a-4309-9782-ffc546f95927",
+    "date": "2021-09-08",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "dose_history_id": "a8b0b4b1-516e-4ec9-b4f4-b661bfd6d7d4",
+    "date": "2021-09-09",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "dose_history_id": "5d48043d-fd67-4146-9c36-69a470c717fc",
+    "date": "2021-09-10",
+    "morning": false,
+    "lunch": false,
+    "dinner": false,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "dose_history_id": "475e48a1-8c91-4f9a-8a9b-b0e15e488457",
+    "date": "2021-09-11",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "a941d130-2d04-4ada-8c2c-dcd9fb11a7d0"
+  },
+  {
+    "dose_history_id": "17102bc7-f87a-4b91-a2b6-3e6185a1418a",
+    "date": "2021-09-07",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "dose_history_id": "0e836247-fddf-400e-a9bb-97ffa01251cc",
+    "date": "2021-09-08",
+    "morning": false,
+    "lunch": false,
+    "dinner": false,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "dose_history_id": "d67d1e8a-431f-4433-ae05-56ee7d7275be",
+    "date": "2021-09-09",
+    "morning": false,
+    "lunch": false,
+    "dinner": false,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "dose_history_id": "425842f9-02ea-4546-9d38-1bda07043f1e",
+    "date": "2021-09-10",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": true,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "dose_history_id": "e83751a3-7258-49f2-b5d7-cd5ba6bdf8d6",
+    "date": "2021-09-11",
+    "morning": true,
+    "lunch": true,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "7bdfa2ea-8d0b-4117-91e3-4e88ee0cecf5"
+  },
+  {
+    "dose_history_id": "359c4bab-61d5-4512-8021-dcff09e39795",
+    "date": "2021-09-07",
+    "morning": true,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "063df4e3-d78c-4efb-9105-37d575676e98"
+  },
+  {
+    "dose_history_id": "3b979d22-eb82-4ebc-b4a9-ecbf4768be7e",
+    "date": "2021-09-08",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "063df4e3-d78c-4efb-9105-37d575676e98"
+  },
+  {
+    "dose_history_id": "15798068-fe3c-4100-80c3-c714c313c5d2",
+    "date": "2021-09-09",
+    "morning": true,
+    "lunch": false,
+    "dinner": false,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "063df4e3-d78c-4efb-9105-37d575676e98"
+  },
+  {
+    "dose_history_id": "8f470f0b-1e7e-49ba-a710-b47ec057545e",
+    "date": "2021-09-10",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "063df4e3-d78c-4efb-9105-37d575676e98"
+  },
+  {
+    "dose_history_id": "a92f6570-5366-45f9-acb7-9e531f7a1b06",
+    "date": "2021-09-11",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "063df4e3-d78c-4efb-9105-37d575676e98"
+  },
+  {
+    "dose_history_id": "132206ac-48d8-454e-bf5a-84f0bad0d48b",
+    "date": "2021-09-07",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+  {
+    "dose_history_id": "c2b79f9d-eea2-47ba-a8dc-f184976fda46",
+    "date": "2021-09-08",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+  {
+    "dose_history_id": "eeb8a1fa-463a-4966-8469-3401ee86b48f",
+    "date": "2021-09-09",
+    "morning": false,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+  {
+    "dose_history_id": "4b7bea36-8c45-47ab-bba3-6296abf8c8be",
+    "date": "2021-09-10",
+    "morning": false,
+    "lunch": false,
+    "dinner": false,
+    "before_bed": false,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+  {
+    "dose_history_id": "cb286a8a-0e26-4d0b-8765-0d79ed4aaabb",
+    "date": "2021-09-11",
+    "morning": false,
+    "lunch": false,
+    "dinner": false,
+    "before_bed": true,
+    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_prescription_id": "5bf2fc99-897d-45a8-b787-e630d149bb0e"
+  },
+  {
+    "dose_history_id": "7385316a-b61a-4827-8490-2c404d22b708",
+    "date": "2021-09-07",
+    "morning": false,
+    "lunch": true,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "dose_history_id": "7a366aa8-6a71-48d4-97e5-2f359a651d34",
+    "date": "2021-09-08",
+    "morning": true,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "dose_history_id": "56d4aeec-c274-4d93-82c5-b65127a1dcd2",
+    "date": "2021-09-09",
+    "morning": false,
+    "lunch": true,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "dose_history_id": "b706ff12-9ba9-4ff9-bcfd-66809c55cbc0",
+    "date": "2021-09-10",
+    "morning": true,
+    "lunch": false,
+    "dinner": true,
+    "before_bed": true,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  },
+  {
+    "dose_history_id": "0bfad8f9-0876-4487-a7d8-c04ccf561944",
+    "date": "2021-09-11",
+    "morning": false,
+    "lunch": true,
+    "dinner": true,
+    "before_bed": false,
+    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_prescription_id": "5d85cc9f-6322-40d4-9d16-550a0fa10ce7"
+  }
+]

@@ -1,7 +1,7 @@
 const env = process.env;
 
 const development = {
-  username: env.MYSQL_USERNAME,
+  username: env.MYSQL_USERNAME || "root",
   password: env.MYSQL_PASSWORD,
   database: env.MYSQL_DATABASE,
   host: env.MYSQL_HOST,
@@ -11,6 +11,7 @@ const development = {
     dateStrings: true,
     typeCast: true,
   },
+  logging: false,
 };
 
 const production = {
@@ -24,6 +25,7 @@ const production = {
     dateStrings: true,
     typeCast: true,
   },
+  logging: false,
 };
 
 const test = {
