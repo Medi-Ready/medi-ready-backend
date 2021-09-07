@@ -5,16 +5,16 @@ const userService = require("../../services/user.service");
 
 exports.login = async (req, res, next) => {
   try {
-    const userData = req.body;
+    const userInfo = req.body;
 
-    if (!userData) {
+    if (!userInfo) {
       throw createError(400, "Invalid user data");
     }
 
-    const user = await userService.findUser(userData);
+    const user = await userService.findUser(userInfo);
 
     if (user) {
-      const token = encode(userData);
+      const token = encode(userInfo);
 
       res.status(200).json({
         result: "login success",
@@ -22,8 +22,8 @@ exports.login = async (req, res, next) => {
         token,
       });
     } else {
-      const user = await userService.create(userData);
-      const token = encode(userData);
+      const user = await userService.create(userInfo);
+      const token = encode(userInfo);
 
       res.status(201).json({
         result: "register success",

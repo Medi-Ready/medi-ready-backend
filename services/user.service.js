@@ -1,7 +1,7 @@
 const { User } = require("../models");
 
-exports.findUser = async (userData) => {
-  const { email, user_type } = userData;
+exports.findUser = async (userInfo) => {
+  const { email, user_type } = userInfo;
 
   try {
     return await User.findOne({
@@ -15,9 +15,9 @@ exports.findUser = async (userData) => {
   }
 };
 
-exports.create = async (userData) => {
+exports.create = async (userInfo) => {
   try {
-    return await User.create(userData);
+    return await User.create(userInfo);
   } catch (error) {
     throw error;
   }
