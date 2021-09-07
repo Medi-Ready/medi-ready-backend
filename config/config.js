@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const env = process.env;
 
 const development = {
@@ -6,11 +8,6 @@ const development = {
   database: env.MYSQL_DATABASE,
   host: env.MYSQL_HOST,
   dialect: "mysql",
-  timezone: "+09:00",
-  dialectOptions: {
-    dateStrings: true,
-    typeCast: true,
-  },
   logging: false,
 };
 
@@ -20,11 +17,6 @@ const production = {
   database: env.MYSQL_DATABASE,
   host: env.MYSQL_HOST,
   dialect: "mysql",
-  timezone: "+09:00",
-  dialectOptions: {
-    dateStrings: true,
-    typeCast: true,
-  },
   logging: false,
 };
 
@@ -34,11 +26,6 @@ const test = {
   database: env.MYSQL_DATABASE,
   host: env.MYSQL_HOST,
   dialect: "mysql",
-  timezone: "+09:00",
-  dialectOptions: {
-    dateStrings: true,
-    typeCast: true,
-  },
 };
 
 module.exports = { development, production, test };
