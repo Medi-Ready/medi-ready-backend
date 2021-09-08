@@ -12,8 +12,10 @@ initLoader(app);
 connectSequelize();
 
 const index = require("./routes/index");
+const prescriptionsRouter = require("./routes/prescriptions");
 
 app.use("/", index);
+app.use("/prescriptions", prescriptionsRouter);
 
 app.use((req, res, next) => {
   next(createError(404));
@@ -23,8 +25,8 @@ app.use((err, req, res, next) => {
   console.error(err);
 
   err.status
-    ? res.status(err.status).json({ result: err.message })
-    : res.status(500).json({ result: "Internal server error" });
+    ? res.status(err.status).json({ result: "fail", message: err.message })
+    : res.status(500).json({ result: "fail", message: "Internal server error" });
 });
 
 module.exports = app;

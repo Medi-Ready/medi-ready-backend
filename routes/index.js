@@ -6,6 +6,6 @@ const { verifyToken } = require("../middlewares/verifyToken");
 
 router.post("/api/login", loginController.login);
 router.post("/api/logout", loginController.logout);
-router.post("/api/auth-check", verifyToken, loginController.authorize);
+router.get("/api/auth-check", verifyToken, loginController.authorize);
 
 module.exports = router;

@@ -4,7 +4,11 @@ const { decode } = require("../utils/jwt");
 const userService = require("../services/user.service");
 
 const verifyToken = async (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
+  if (!req.headers.cookie) {
+    return res.json({ result: "fail", message: "Unauthorized user" });
+  }
+
+  const token = req.headers.cookie.split(" ")[1];
 
   try {
     if (!token) {
@@ -20,7 +24,7 @@ const verifyToken = async (req, res, next) => {
       return next();
     }
 
-    res.json({ result: "Unauthorized user" });
+    res.json({ result: "fail", message: "Unauthorized user" });
   } catch (error) {
     next(error);
   }
