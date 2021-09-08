@@ -10,5 +10,23 @@
     "fk_user_id": "df3f0d0c-e45d-47f0-8ffd-fbf807ac11c7",
     "pharmacy_name": "bovu Pharmacy",
     "pharmacy_address": "777 Cheyanne River, East Jovanimouth"
+  },
+  {
+    "pharmacist_id": "80ec38c6-949b-4cd3-993d-93c89962699f",
+    "fk_user_id": "75a38867-41d9-418c-a6cc-53e078a8fa66",
+    "pharmacy_name": "bonjour Pharmacy",
+    "pharmacy_address": "2503 Zappia Drive"
+  },
+  {
+    "pharmacist_id": "35ab0ff5-8bf2-438a-b154-47c425729f7a",
+    "fk_user_id": "90bc4d5d-bdea-4c91-95d2-56eebefcadbf",
+    "pharmacy_name": "KenKen Pharmacy",
+    "pharmacy_address": "3249 Grant Street"
+  },
+  {
+    "pharmacist_id": "7e5fd176-2539-489a-9b7d-f6a19e14993f",
+    "fk_user_id": "12b418cb-a97e-40f9-bcf3-bc2ac0ef1bb9",
+    "pharmacy_name": "Vaco Pharmacy",
+    "pharmacy_address": "4440 Despard Street"
   }
 ]

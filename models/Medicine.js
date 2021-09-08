@@ -4,7 +4,6 @@ const Medicine = (sequelize, DataTypes) => {
     {
       medicine_id: {
         type: DataTypes.STRING(15),
-        primaryKey: true,
         allowNull: false,
       },
     },
