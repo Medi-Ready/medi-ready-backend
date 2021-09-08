@@ -86,5 +86,104 @@
     "fri": false,
     "sat": false,
     "sun": false
+  },
+  {
+    "dose_day_id": "9eb48ad6-3570-4704-9b1a-d4834f8d9216",
+    "fk_prescription_id": "693446bb-a910-4311-9c98-9d6c881f3a3c",
+    "mon": true,
+    "tue": true,
+    "thr": true,
+    "wed": true,
+    "fri": false,
+    "sat": false,
+    "sun": false
+  },
+  {
+    "dose_day_id": "08c3b849-26f1-4d1f-819e-95a3040d87c2",
+    "fk_prescription_id": "ed11922e-d6b5-42d0-9ec4-5924a39685fa",
+    "mon": false,
+    "tue": true,
+    "thr": true,
+    "wed": true,
+    "fri": true,
+    "sat": false,
+    "sun": false
+  },
+  {
+    "dose_day_id": "8fa3b9ad-fd9e-4b23-a942-4ecfcc1c84a2",
+    "fk_prescription_id": "e4951870-f37c-44e2-8801-1dafb4e3b1ef",
+    "mon": false,
+    "tue": true,
+    "thr": true,
+    "wed": true,
+    "fri": true,
+    "sat": false,
+    "sun": false
+  },
+  {
+    "dose_day_id": "ad58997f-bb5b-47a8-be2e-42a39c748a70",
+    "fk_prescription_id": "a8a100f1-68fe-451b-98bf-a22c2a9e8be1",
+    "mon": false,
+    "tue": false,
+    "thr": false,
+    "wed": true,
+    "fri": true,
+    "sat": true,
+    "sun": true
+  },
+  {
+    "dose_day_id": "9a581f6a-aced-4e26-b427-3bcbfd464843",
+    "fk_prescription_id": "ecb7676a-6f7f-40a4-ae6d-5cc7d4b8d7ea",
+    "mon": false,
+    "tue": false,
+    "thr": true,
+    "wed": true,
+    "fri": true,
+    "sat": true,
+    "sun": false
+  },
+  {
+    "dose_day_id": "d987104f-c63f-42d1-99c6-77400b1c802d",
+    "fk_prescription_id": "a4c8c7bd-79fc-4d7b-be9e-917d739a9211",
+    "mon": true,
+    "tue": true,
+    "thr": false,
+    "wed": false,
+    "fri": false,
+    "sat": false,
+    "sun": true
+  },
+  {
+    "dose_day_id": "73c2957c-adcb-4879-a2c2-52fd68698e84",
+    "fk_prescription_id": "aa4f5091-f1c3-4c34-91d7-016d06c05d90",
+    "mon": true,
+    "tue": true,
+    "thr": false,
+    "wed": false,
+    "fri": false,
+    "sat": false,
+    "sun": true
+  },
+  {
+    "dose_day_id": "7d3e96d7-1cf8-4b8e-a40f-ff0327094d5d",
+    "fk_prescription_id": "19e17083-485b-4d67-b623-de95a8aec61b",
+    "mon": false,
+    "tue": false,
+    "thr": false,
+    "wed": true,
+    "fri": true,
+    "sat": true,
+    "sun": true
+  },
+  {
+    "dose_day_id": "e10b7b4d-8784-42f7-9538-2342511ab264",
+    "fk_prescription_id": "d482a609-b946-4fc6-9694-9bef57c9f686",
+    "mon": false,
+    "tue": false,
+    "thr": false,
+    "wed": false,
+    "fri": true,
+    "sat": true,
+    "sun": true
   }
 ]

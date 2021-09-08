@@ -6,7 +6,6 @@ const userService = require("../../services/user.service");
 const DAY = 1000 * 60 * 60 * 24;
 const cookieOptions = {
   path: "/",
-  sameSite: true,
   maxAge: DAY,
   httpOnly: true,
 };
@@ -16,7 +15,7 @@ exports.login = async (req, res, next) => {
     const userInfo = req.body;
 
     if (!userInfo) {
-      throw createError(400, "Invalid user data");
+      return res.json({ result: "fail", message: "Invalid user data"});
     }
 
     const user = await userService.findOrCreate(userInfo);
@@ -26,9 +25,12 @@ exports.login = async (req, res, next) => {
       res.cookie("token", token, cookieOptions);
 
       res.status(200).json({
-        result: "login success",
-        user,
-        token,
+        result: "success",
+        message: "login success",
+        data: {
+          user,
+          token,
+        },
       });
     }
   } catch (error) {
@@ -38,9 +40,9 @@ exports.login = async (req, res, next) => {
 
 exports.logout = async (req, res, next) => {
   res.clearCookie("token");
-  res.json({ result: "logout success" });
+  res.json({ result: "success", message: "logout success" });
 };
 
 exports.authorize = async (req, res, next) => {
-  res.json({ result: "authorized", user: req.userInfo });
+  res.json({ result: "success", message: "authorized", data: req.userInfo });
 };
