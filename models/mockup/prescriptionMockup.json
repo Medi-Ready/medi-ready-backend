@@ -5,7 +5,7 @@
     "is_custom": true,
     "expiration_date": "2021-09-20",
     "created_at": "2021-09-05 13:15:00",
-    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_patient_id": "9cf8b89f-9561-41c6-ab73-22d4b88bbdbf",
     "fk_pharmacist_id": "fc71a5c4-3597-4788-bd54-54e0244c3a90"
   },
   {
@@ -14,16 +14,16 @@
     "is_custom": true,
     "expiration_date": "2021-09-20",
     "created_at": "2021-09-05 13:15:00",
-    "fk_patient_id": "60198da0-9a81-4ac3-89f9-e61cc5bc171a",
+    "fk_patient_id": "9cf8b89f-9561-41c6-ab73-22d4b88bbdbf",
     "fk_pharmacist_id": "fc71a5c4-3597-4788-bd54-54e0244c3a90"
   },
   {
     "prescription_id": "3681b27c-6a7f-4444-b36b-931c23d8a988",
     "is_alarm_on": true,
-    "is_custom": true,
+    "is_custom": false,
     "expiration_date": "2021-09-20",
     "created_at": "2021-09-05 13:15:00",
-    "fk_patient_id": "790d145e-f9ce-4355-852c-1bc8ac29b95f",
+    "fk_patient_id": "9cf8b89f-9561-41c6-ab73-22d4b88bbdbf",
     "fk_pharmacist_id": "fc71a5c4-3597-4788-bd54-54e0244c3a90"
   },
   {
@@ -46,7 +46,7 @@
   },
   {
     "prescription_id": "063df4e3-d78c-4efb-9105-37d575676e98",
-    "is_alarm_on": true,
+    "is_alarm_on": false,
     "is_custom": false,
     "expiration_date": "2021-09-20",
     "created_at": "2021-09-05 13:15:00",
