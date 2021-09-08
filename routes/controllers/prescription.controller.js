@@ -1,5 +1,3 @@
-const createError = require("http-errors");
-
 const prescriptionService = require("../../services/prescription.service");
 
 exports.getPrescriptions = async (req, res, next) => {
@@ -8,7 +6,7 @@ exports.getPrescriptions = async (req, res, next) => {
     let prescriptions = null;
 
     if (!userInfo) {
-      throw createError(400, "unauthorized");
+      return res.json({ result: "fail", message: "unauthorized"});
     }
 
     if (userInfo.user_type === "patient") {
@@ -20,7 +18,7 @@ exports.getPrescriptions = async (req, res, next) => {
     }
 
     if (!prescriptions) {
-      res.json({ result: "fail" });
+      return res.json({ result: "fail" });
     }
 
     res.json({ result: "success", data: prescriptions });

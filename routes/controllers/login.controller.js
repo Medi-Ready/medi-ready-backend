@@ -15,7 +15,7 @@ exports.login = async (req, res, next) => {
     const userInfo = req.body;
 
     if (!userInfo) {
-      throw createError(400, "Invalid user data");
+      return res.json({ result: "fail", message: "Invalid user data"});
     }
 
     const user = await userService.findOrCreate(userInfo);

@@ -1,7 +1,7 @@
 const { Prescription } = require("../models");
 const userService = require("./user.service");
 
-exports.getPatientPrescription = async (userInfo) => {
+exports.getPatientPrescriptions = async (userInfo) => {
   try {
     const patient = await userService.findPatient(userInfo);
     const patientId = patient["patient.patient_id"];
