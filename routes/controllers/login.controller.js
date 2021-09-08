@@ -6,7 +6,6 @@ const userService = require("../../services/user.service");
 const DAY = 1000 * 60 * 60 * 24;
 const cookieOptions = {
   path: "/",
-  sameSite: true,
   maxAge: DAY,
   httpOnly: true,
 };

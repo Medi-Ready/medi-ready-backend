@@ -17,3 +17,20 @@ exports.getPatientPrescription = async (userInfo) => {
     throw error;
   }
 };
+
+exports.getPharmacistPrescriptions = async (userInfo) => {
+  try {
+    const pharmacist = await userService.findPharmacist(userInfo);
+    const pharmacistId = pharmacist["pharmacist.pharmacist_id"];
+
+    const prescriptions = await Prescription.findAll({
+      where: {
+        fk_pharmacist_id: pharmacistId,
+      },
+    });
+
+    return prescriptions;
+  } catch (error) {
+    throw error;
+  }
+};

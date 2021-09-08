@@ -1,4 +1,4 @@
-const { User, Patient } = require("../models");
+const { User, Patient, Pharmacist } = require("../models");
 
 exports.findOrCreate = async (userInfo) => {
   const { email, user_type, name, picture } = userInfo;
@@ -41,6 +41,28 @@ exports.findPatient = async (userInfo) => {
         {
           model: Patient,
           attributes: ["patient_id"],
+        },
+      ],
+      raw: true,
+      where: {
+        email,
+        user_type,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+exports.findPharmacist = async (userInfo) => {
+  const { email, user_type } = userInfo;
+
+  try {
+    return await User.findOne({
+      include: [
+        {
+          model: Pharmacist,
+          attributes: ["pharmacist_id"],
         },
       ],
       raw: true,

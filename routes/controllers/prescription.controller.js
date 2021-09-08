@@ -4,7 +4,7 @@ const prescriptionService = require("../../services/prescription.service");
 
 exports.getPrescriptions = async (req, res, next) => {
   try {
-    const userInfo = req.userInfo;
+    const { userInfo } = req;
     let prescriptions = null;
 
     if (!userInfo) {
