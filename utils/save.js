@@ -1,6 +1,7 @@
 const {
   User,
   Alarm,
+  Queue,
   Patient,
   DoseDay,
   Medicine,
@@ -15,6 +16,7 @@ const save = async () => {
 
   const userRawData = fs.readFileSync("./models/mockup/userMockup.json");
   const alarmRawData = fs.readFileSync("./models/mockup/alarmMockup.json");
+  const queueRawData = fs.readFileSync("./models/mockup/queueMockup.json");
   const patientRawData = fs.readFileSync("./models/mockup/patientMockup.json");
   const doseDayRawData = fs.readFileSync("./models/mockup/doseDayMockup.json");
   const medicineRawData = fs.readFileSync("./models/mockup/medicineMockup.json");
@@ -25,6 +27,7 @@ const save = async () => {
 
   const userData = JSON.parse(userRawData);
   const alarmData = JSON.parse(alarmRawData);
+  const queueData = JSON.parse(queueRawData);
   const patientData = JSON.parse(patientRawData);
   const doseDayData = JSON.parse(doseDayRawData);
   const medicineData = JSON.parse(medicineRawData);
@@ -77,6 +80,11 @@ const save = async () => {
     for (let i = 0; i < medicineData.length; i++) {
       await Medicine.create(medicineData[i]);
       console.log(i + 1, medicineData.length);
+    }
+
+    for (let i = 0; i < queueData.length; i++) {
+      await Queue.create(queueData[i]);
+      console.log(i + 1, queueData.length);
     }
 
     console.log("mockup successfully entered into database");

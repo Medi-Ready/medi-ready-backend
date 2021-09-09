@@ -1,0 +1,22 @@
+[
+  {
+    "queue_id": "bc395330-cc81-42b8-89cd-68ebb7be807b",
+    "fk_pharmacist_id": "fc71a5c4-3597-4788-bd54-54e0244c3a90"
+  },
+  {
+    "queue_id": "ed3c1b89-b2a6-4a19-82db-9d3e408fe5d1",
+    "fk_pharmacist_id": "7bcd19ca-2b26-43de-b43c-7dcd04924843"
+  },
+  {
+    "queue_id": "e8c49f92-4c25-456e-b25a-11c6f94292d3",
+    "fk_pharmacist_id": "80ec38c6-949b-4cd3-993d-93c89962699f"
+  },
+  {
+    "queue_id": "4e195937-822e-434d-91a7-0cce189f713d",
+    "fk_pharmacist_id": "35ab0ff5-8bf2-438a-b154-47c425729f7a"
+  },
+  {
+    "queue_id": "e1eef2ec-966f-4689-920a-98366901bc79",
+    "fk_pharmacist_id": "7e5fd176-2539-489a-9b7d-f6a19e14993f"
+  }
+]

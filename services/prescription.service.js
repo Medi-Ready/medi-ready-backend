@@ -10,7 +10,7 @@ const {
 } = require("../models");
 const userService = require("./user.service");
 
-exports.getPatientPrescriptions = async (userInfo) => {
+exports.getPatientPrescriptionList = async (userInfo) => {
   try {
     const patient = await userService.findPatient(userInfo);
     const patientId = patient["patient.patient_id"];
@@ -25,7 +25,6 @@ exports.getPatientPrescriptions = async (userInfo) => {
         { model: Pharmacist },
         { model: DoseHistory },
       ],
-      where: { fk_patient_id: patientId },
     });
 
     return prescriptions;
@@ -34,12 +33,12 @@ exports.getPatientPrescriptions = async (userInfo) => {
   }
 };
 
-exports.getPharmacistPrescriptions = async (userInfo) => {
+exports.getPharmacistPrescriptionList = async (userInfo) => {
   try {
     const pharmacist = await userService.findPharmacist(userInfo);
     const pharmacistId = pharmacist["pharmacist.pharmacist_id"];
 
-    const prescriptions = await Prescription.findAll({
+    const [prescriptions] = await Prescription.findAll({
       where: {
         fk_pharmacist_id: pharmacistId,
       },

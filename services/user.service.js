@@ -75,3 +75,11 @@ exports.findPharmacist = async (userInfo) => {
     throw error;
   }
 };
+
+exports.findPharmacistById = async (userId) => {
+  try {
+    return await Pharmacist.findOne({ pharmacist_id: userId });
+  } catch (error) {
+    throw error;
+  }
+};
