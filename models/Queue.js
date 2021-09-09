@@ -1,8 +1,8 @@
-const WaitingList = (sequelize, DataTypes) => {
+const Queue = (sequelize, DataTypes) => {
   return sequelize.define(
-    "waitingList",
+    "queue",
     {
-      waiting_list_id: {
+      queue_id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
@@ -15,4 +15,4 @@ const WaitingList = (sequelize, DataTypes) => {
   );
 };
 
-module.exports = WaitingList;
+module.exports = Queue;

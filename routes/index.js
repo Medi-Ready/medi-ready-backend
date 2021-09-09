@@ -17,6 +17,7 @@ router.get(
   prescriptionController.getPrescriptionDetails
 );
 
-router.post("/qrcode/:pharmacistId", verifyToken, serviceController.registerOnList);
+router.get("/queue", verifyToken, serviceController.getQueue);
+router.post("/queue", verifyToken, serviceController.registerQueue);
 
 module.exports = router;

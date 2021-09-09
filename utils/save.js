@@ -1,11 +1,11 @@
 const {
   User,
   Alarm,
+  Queue,
   Patient,
   DoseDay,
   Medicine,
   Pharmacist,
-  WaitingList,
   DoseHistory,
   Prescription,
   MedicineDetail,
@@ -16,22 +16,22 @@ const save = async () => {
 
   const userRawData = fs.readFileSync("./models/mockup/userMockup.json");
   const alarmRawData = fs.readFileSync("./models/mockup/alarmMockup.json");
+  const queueRawData = fs.readFileSync("./models/mockup/queueMockup.json");
   const patientRawData = fs.readFileSync("./models/mockup/patientMockup.json");
   const doseDayRawData = fs.readFileSync("./models/mockup/doseDayMockup.json");
   const medicineRawData = fs.readFileSync("./models/mockup/medicineMockup.json");
   const pharmacistRawData = fs.readFileSync("./models/mockup/pharmacistMockup.json");
-  const waitingListRawData = fs.readFileSync("./models/mockup/waitingListMockup.json");
   const doseHistoryRawData = fs.readFileSync("./models/mockup/doseHistoryMockup.json");
   const prescriptionRawData = fs.readFileSync("./models/mockup/prescriptionMockup.json");
   const medicineDetailRawData = fs.readFileSync("./models/mockup/medicineDetailMockup.json");
 
   const userData = JSON.parse(userRawData);
   const alarmData = JSON.parse(alarmRawData);
+  const queueData = JSON.parse(queueRawData);
   const patientData = JSON.parse(patientRawData);
   const doseDayData = JSON.parse(doseDayRawData);
   const medicineData = JSON.parse(medicineRawData);
   const pharmacistData = JSON.parse(pharmacistRawData);
-  const waitingListData = JSON.parse(waitingListRawData);
   const doseHistoryData = JSON.parse(doseHistoryRawData);
   const prescriptionData = JSON.parse(prescriptionRawData);
   const medicineDetailData = JSON.parse(medicineDetailRawData);
@@ -82,9 +82,9 @@ const save = async () => {
       console.log(i + 1, medicineData.length);
     }
 
-    for (let i = 0; i < waitingListData.length; i++) {
-      await WaitingList.create(waitingListData[i]);
-      console.log(i + 1, waitingListData.length);
+    for (let i = 0; i < queueData.length; i++) {
+      await Queue.create(queueData[i]);
+      console.log(i + 1, queueData.length);
     }
 
     console.log("mockup successfully entered into database");
