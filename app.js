@@ -2,20 +2,18 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const express = require("express");
-const createError = require("http-errors");
-
 const app = express();
+
 const initLoader = require("./loaders");
+const createError = require("http-errors");
 const connectSequelize = require("./config/db");
 
 initLoader(app);
 connectSequelize();
 
 const index = require("./routes/index");
-const prescriptionsRouter = require("./routes/prescriptions");
 
-app.use("/", index);
-app.use("/prescriptions", prescriptionsRouter);
+app.use("/api", index);
 
 app.use((req, res, next) => {
   next(createError(404));

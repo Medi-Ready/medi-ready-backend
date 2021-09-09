@@ -1,12 +1,12 @@
 const prescriptionService = require("../../services/prescription.service");
 
-exports.getPrescriptions = async (req, res, next) => {
+exports.getPrescriptionsList = async (req, res, next) => {
   try {
     const { userInfo } = req;
     let prescriptions = null;
 
     if (!userInfo) {
-      return res.json({ result: "fail", message: "unauthorized"});
+      return res.json({ result: "fail", message: "unauthorized" });
     }
 
     if (userInfo.user_type === "patient") {
@@ -25,4 +25,12 @@ exports.getPrescriptions = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+exports.getPrescriptionDetails = async (req, res, next) => {
+  const { prescriptionId } = req.params;
+
+  const details = await prescriptionService.getDetails(prescriptionId);
+
+  res.json({ result: "success", data: details });
 };
