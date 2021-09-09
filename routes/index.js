@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { verifyToken } = require("../middlewares/verifyToken");
 const loginController = require("./controllers/login.controller");
+const serviceController = require("./controllers/service.controller");
 const prescriptionController = require("./controllers/prescription.controller");
 
 router.post("/login", loginController.login);
@@ -15,5 +16,7 @@ router.get(
   verifyToken,
   prescriptionController.getPrescriptionDetails
 );
+
+router.post("/qrcode/:pharmacistId", verifyToken, serviceController.registerOnList);
 
 module.exports = router;

@@ -1,5 +1,3 @@
-const createError = require("http-errors");
-
 const { encode } = require("../../utils/jwt");
 const userService = require("../../services/user.service");
 
@@ -15,7 +13,7 @@ exports.login = async (req, res, next) => {
     const userInfo = req.body;
 
     if (!userInfo) {
-      return res.json({ result: "fail", message: "Invalid user data"});
+      return res.json({ result: "fail", message: "Invalid user data" });
     }
 
     const user = await userService.findOrCreate(userInfo);
@@ -44,5 +42,18 @@ exports.logout = async (req, res, next) => {
 };
 
 exports.authorize = async (req, res, next) => {
+  const { user_type } = req.userInfo;
+
+  if (user_type === "pharmacist") {
+    const pharmacist = await userService.findPharmacist(req.userInfo);
+    const pharmacistId = pharmacist["pharmacist.pharmacist_id"];
+
+    return res.json({
+      result: "success",
+      message: "authorized",
+      data: { ...req.userInfo, pharmacistId },
+    });
+  }
+
   res.json({ result: "success", message: "authorized", data: req.userInfo });
 };
