@@ -75,3 +75,16 @@ exports.findPharmacist = async (userInfo) => {
     throw error;
   }
 };
+
+exports.updateWaitingStatus = async (userInfo, waitingListId) => {
+  try {
+    return await Patient.update(
+      { fk_waiting_list_id: waitingListId },
+      {
+        where: { fk_user_id: userInfo.user_id },
+      }
+    );
+  } catch (error) {
+    throw error;
+  }
+};

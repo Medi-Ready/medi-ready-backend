@@ -10,7 +10,7 @@ router.post("/login", loginController.login);
 router.post("/logout", loginController.logout);
 router.get("/auth-check", verifyToken, loginController.authorize);
 
-router.get("/prescriptions", verifyToken, prescriptionController.getPrescriptionsList);
+router.get("/prescriptions", verifyToken, prescriptionController.getPrescriptionList);
 router.get(
   "/prescriptions/:prescriptionId",
   verifyToken,
