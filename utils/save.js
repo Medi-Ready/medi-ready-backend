@@ -5,6 +5,7 @@ const {
   DoseDay,
   Medicine,
   Pharmacist,
+  WaitingList,
   DoseHistory,
   Prescription,
   MedicineDetail,
@@ -19,6 +20,7 @@ const save = async () => {
   const doseDayRawData = fs.readFileSync("./models/mockup/doseDayMockup.json");
   const medicineRawData = fs.readFileSync("./models/mockup/medicineMockup.json");
   const pharmacistRawData = fs.readFileSync("./models/mockup/pharmacistMockup.json");
+  const waitingListRawData = fs.readFileSync("./models/mockup/waitingListMockup.json");
   const doseHistoryRawData = fs.readFileSync("./models/mockup/doseHistoryMockup.json");
   const prescriptionRawData = fs.readFileSync("./models/mockup/prescriptionMockup.json");
   const medicineDetailRawData = fs.readFileSync("./models/mockup/medicineDetailMockup.json");
@@ -29,6 +31,7 @@ const save = async () => {
   const doseDayData = JSON.parse(doseDayRawData);
   const medicineData = JSON.parse(medicineRawData);
   const pharmacistData = JSON.parse(pharmacistRawData);
+  const waitingListData = JSON.parse(waitingListRawData);
   const doseHistoryData = JSON.parse(doseHistoryRawData);
   const prescriptionData = JSON.parse(prescriptionRawData);
   const medicineDetailData = JSON.parse(medicineDetailRawData);
@@ -77,6 +80,11 @@ const save = async () => {
     for (let i = 0; i < medicineData.length; i++) {
       await Medicine.create(medicineData[i]);
       console.log(i + 1, medicineData.length);
+    }
+
+    for (let i = 0; i < waitingListData.length; i++) {
+      await WaitingList.create(waitingListData[i]);
+      console.log(i + 1, waitingListData.length);
     }
 
     console.log("mockup successfully entered into database");
