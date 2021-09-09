@@ -16,7 +16,7 @@ exports.registerQueue = async (req, res, next) => {
     const [queue] = await queueService.createQueue(pharmacistId);
     const queueId = queue.queue_id;
 
-    await userService.updateQueue(userInfo, queueId);
+    await queueService.updateQueue(userInfo, queueId);
 
     res.json({ result: "success" });
   } catch (error) {
