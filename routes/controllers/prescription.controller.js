@@ -21,7 +21,7 @@ exports.getPrescriptionsList = async (req, res, next) => {
       return res.json({ result: "fail" });
     }
 
-    res.json({ result: "success", data: prescriptions });
+    res.json({ result: "success", data: prescriptions.dataValues });
   } catch (error) {
     next(error);
   }
