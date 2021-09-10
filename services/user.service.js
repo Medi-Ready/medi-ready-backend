@@ -78,7 +78,7 @@ exports.findPharmacist = async (userInfo) => {
 
 exports.findPharmacistById = async (userId) => {
   try {
-    return await Pharmacist.findOne({ pharmacist_id: userId });
+    return await Pharmacist.findOne({ fk_user_id: userId });
   } catch (error) {
     throw error;
   }
