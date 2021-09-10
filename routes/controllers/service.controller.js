@@ -38,7 +38,7 @@ exports.getQueue = async (req, res, next) => {
     const queue = await queueService.findQueue(user_id);
     const queueId = queue["queue.queue_id"];
 
-    const people = await queueService.getPeopleList(queueId);
+    const people = await queueService.getQueueList(queueId);
 
     res.json({ result: "success", data: people });
   } catch (error) {
