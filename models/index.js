@@ -36,8 +36,8 @@ db.Prescription.belongsTo(db.Patient, { foreignKey: "fk_patient_id" });
 db.MedicineDetail.hasMany(db.Medicine, { foreignKey: "medicine_id" });
 db.Medicine.belongsTo(db.MedicineDetail, { foreignKey: "medicine_id" });
 
-db.Queue.hasMany(db.Patient, { onDelete: "cascade", foreignKey: "fk_queue_id" });
-db.Patient.belongsTo(db.Queue, { onDelete: "cascade", foreignKey: "fk_queue_id" });
+db.Queue.hasMany(db.Patient, { foreignKey: "fk_queue_id" });
+db.Patient.belongsTo(db.Queue, { foreignKey: "fk_queue_id" });
 
 db.Pharmacist.hasMany(db.Prescription, { foreignKey: "fk_pharmacist_id" });
 db.Prescription.belongsTo(db.Pharmacist, { foreignKey: "fk_pharmacist_id" });
