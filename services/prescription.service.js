@@ -15,15 +15,18 @@ exports.getPatientPrescriptionList = async (userInfo) => {
     const patient = await userService.findPatient(userInfo);
     const patientId = patient["patient.patient_id"];
 
-    const prescriptions = await Prescription.findAll({
+    const [prescriptions] = await Prescription.findAll({
       where: {
         fk_patient_id: patientId,
       },
       include: [
         { model: DoseDay },
-        { model: Medicine },
         { model: Pharmacist },
         { model: DoseHistory },
+        {
+          model: Medicine,
+          include: [{ model: MedicineDetail }],
+        },
       ],
     });
 
