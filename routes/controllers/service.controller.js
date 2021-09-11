@@ -10,13 +10,19 @@ exports.registerQueue = async (req, res, next) => {
       return res.json({ result: "fail", message: "unauthorized" });
     }
 
-    const pharmacist = await userService.findPharmacistById(userId);
-    const pharmacistId = pharmacist.dataValues.pharmacist_id;
+    if (!userId) {
+      return res.json({ result: "fail", message: "invalid access" });
+    }
+
+    const pharmacistId = await userService.findPharmacistId(userId);
 
     const [queue] = await queueService.createQueue(pharmacistId);
     const queueId = queue.queue_id;
 
-    await userService.updateQueue(userInfo, queueId);
+    const patient = await userService.findPatient(userInfo);
+    const patientId = patient["patient.patient_id"];
+
+    await queueService.updateQueue(patientId, queueId);
 
     res.json({ result: "success" });
   } catch (error) {
