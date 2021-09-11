@@ -1,7 +1,6 @@
 const {
   User,
   Patient,
-  DoseDay,
   Medicine,
   Pharmacist,
   DoseHistory,
@@ -20,10 +19,14 @@ exports.getPatientPrescriptionList = async (userInfo) => {
         fk_patient_id: patientId,
       },
       include: [
-        { model: DoseDay },
-        { model: Medicine },
         { model: Pharmacist },
         { model: DoseHistory },
+        {
+          model: Medicine,
+          include: [{
+            model: MedicineDetail
+          }],
+        },
       ],
     });
 
@@ -38,16 +41,12 @@ exports.getPharmacistPrescriptionList = async (userInfo) => {
     const pharmacist = await userService.findPharmacist(userInfo);
     const pharmacistId = pharmacist["pharmacist.pharmacist_id"];
 
-    const [prescriptions] = await Prescription.findAll({
-      where: {
-        fk_pharmacist_id: pharmacistId,
-      },
+    const prescriptions = await Prescription.findAll({
       where: { fk_pharmacist_id: pharmacistId },
       include: [
-        { model: Pharmacist },
         { model: Medicine },
-        { model: DoseHistory },
-        { model: DoseDay },
+        { model: Pharmacist },
+        { model: DoseHistory }
       ],
     });
 
@@ -62,10 +61,9 @@ exports.getDetails = async (id) => {
     const details = Prescription.findOne({
       where: { prescription_id: id },
       include: [
+        { model: DoseHistory },
         { model: Pharmacist, include: [{ model: User }] },
         { model: Patient, include: [{ model: User }] },
-        { model: DoseHistory },
-        { model: DoseDay },
         {
           model: Medicine,
           include: [{ model: MedicineDetail }],

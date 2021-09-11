@@ -16,7 +16,7 @@ exports.login = async (req, res, next) => {
       return res.json({ result: "fail", message: "Invalid user data" });
     }
 
-    const [user] = await userService.findOrCreate(userInfo);
+    const user = await userService.findOrCreate(userInfo);
 
     if (user) {
       const token = encode(user.dataValues);
@@ -25,7 +25,7 @@ exports.login = async (req, res, next) => {
       res.status(200).json({
         result: "success",
         message: "login success",
-        data: { user: user.dataValues },
+        data: user.dataValues,
       });
     }
   } catch (error) {
