@@ -4,16 +4,21 @@ const prescriptionService = require("../../services/prescription.service");
 
 exports.postPrescription = async (req, res, next) => {
   const userId = req.userInfo.user_id;
-  const { medicines, duration, patient_id } = req.body;
+  const { medicines, duration, patient_id, description } = req.body;
 
   try {
     const pharmacistId = await userService.findPharmacistId(userId);
 
-    const prescriptionId = await prescriptionService.create(duration, patient_id, pharmacistId);
+    const prescriptionId = await prescriptionService.create(
+      patient_id,
+      pharmacistId,
+      duration || 3,
+      description || "description"
+    );
 
-    userService.dequeue(patient_id);
-    medicineService.createMany(medicines, prescriptionId);
-    prescriptionService.createDoseHistory(patient_id, prescriptionId);
+    await userService.dequeue(patient_id);
+    await medicineService.createMany(medicines, prescriptionId);
+    await prescriptionService.createDoseHistory(patient_id, prescriptionId, duration);
 
     res.json({ result: "success" });
   } catch (error) {

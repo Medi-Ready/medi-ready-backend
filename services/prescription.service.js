@@ -75,7 +75,7 @@ exports.getDetails = async (id) => {
   }
 };
 
-exports.create = async (duration, patientId, pharmacistId) => {
+exports.create = async (patientId, pharmacistId, duration, description) => {
   const DAY = 86400000;
   const expirationDate = new Date().getTime() + duration * DAY;
 
@@ -85,6 +85,7 @@ exports.create = async (duration, patientId, pharmacistId) => {
       fk_patient_id: patientId,
       fk_pharmacist_id: pharmacistId,
       expiration_date: expirationDate,
+      description,
     });
 
     return prescription.dataValues.prescription_id;
@@ -93,7 +94,7 @@ exports.create = async (duration, patientId, pharmacistId) => {
   }
 };
 
-exports.createDoseHistory = async (patientId, prescriptionId) => {
+exports.createDoseHistory = async (patientId, prescriptionId, duration) => {
   const DAY = 86400000;
   const now = new Date().getTime();
   const expirationDate = new Date().getTime() + duration * DAY;

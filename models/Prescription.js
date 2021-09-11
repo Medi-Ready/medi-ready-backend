@@ -15,6 +15,10 @@ const Prescription = (sequelize, DataTypes) => {
       expiration_date: {
         type: DataTypes.DATE,
       },
+      description: {
+        type: DataTypes.TEXT,
+        defaultValue: "please enter description",
+      },
       created_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
