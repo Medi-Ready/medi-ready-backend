@@ -14,8 +14,7 @@ exports.registerQueue = async (req, res, next) => {
       return res.json({ result: "fail", message: "invalid access" });
     }
 
-    const pharmacist = await userService.findPharmacistById(userId);
-    const pharmacistId = pharmacist.dataValues.pharmacist_id;
+    const pharmacistId = await userService.findPharmacistId(userId);
 
     const [queue] = await queueService.createQueue(pharmacistId);
     const queueId = queue.queue_id;

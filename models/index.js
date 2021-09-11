@@ -9,11 +9,10 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 
 db.User = require("./User")(sequelize, Sequelize);
 db.Alarm = require("./Alarm")(sequelize, Sequelize);
+db.Queue = require("./Queue")(sequelize, Sequelize);
 db.Patient = require("./Patient")(sequelize, Sequelize);
-db.DoseDay = require("./DoseDay")(sequelize, Sequelize);
 db.Medicine = require("./Medicine")(sequelize, Sequelize);
 db.Pharmacist = require("./Pharmacist")(sequelize, Sequelize);
-db.Queue = require("./Queue")(sequelize, Sequelize);
 db.DoseHistory = require("./DoseHistory")(sequelize, Sequelize);
 db.Prescription = require("./Prescription")(sequelize, Sequelize);
 db.MedicineDetail = require("./MedicineDetail")(sequelize, Sequelize);
@@ -44,9 +43,6 @@ db.Prescription.belongsTo(db.Pharmacist, { foreignKey: "fk_pharmacist_id" });
 
 db.Prescription.hasMany(db.Medicine, { foreignKey: "fk_prescription_id" });
 db.Medicine.belongsTo(db.Prescription, { foreignKey: "fk_prescription_id" });
-
-db.Prescription.hasMany(db.DoseDay, { foreignKey: "fk_prescription_id" });
-db.DoseDay.belongsTo(db.Prescription, { foreignKey: "fk_prescription_id" });
 
 db.Pharmacist.hasOne(db.Queue, { foreignKey: "fk_pharmacist_id" });
 db.Queue.belongsTo(db.Pharmacist, { foreignKey: "fk_pharmacist_id" });
