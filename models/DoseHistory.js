@@ -10,7 +10,7 @@ const DoseHistory = (sequelize, DataTypes) => {
         allowNull: false,
       },
       date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
       morning: {

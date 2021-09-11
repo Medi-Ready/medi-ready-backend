@@ -12,10 +12,6 @@ const Prescription = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
-      is_custom: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-      },
       expiration_date: {
         type: DataTypes.DATE,
       },
