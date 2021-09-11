@@ -11,12 +11,12 @@ exports.createQueue = async (pharmacistId) => {
   }
 };
 
-exports.updateQueue = async (userInfo, queueId) => {
+exports.updateQueue = async (patientId, queueId) => {
   try {
     return await Patient.update(
       { fk_queue_id: queueId },
       {
-        where: { fk_user_id: userInfo.user_id },
+        where: { patient_id: patientId },
       }
     );
   } catch (error) {
@@ -36,7 +36,7 @@ exports.findQueue = async (pharmacistId) => {
   });
 };
 
-exports.getPeopleList = async (queueId) => {
+exports.getQueueList = async (queueId) => {
   return await Patient.findAll({
     where: { fk_queue_id: queueId },
     include: [{ model: User }],
