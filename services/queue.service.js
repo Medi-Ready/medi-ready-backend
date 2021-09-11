@@ -36,9 +36,11 @@ exports.findQueue = async (pharmacistId) => {
   });
 };
 
-exports.getPeopleList = async (queueId) => {
+exports.getQueueList = async (queueId) => {
   return await Patient.findAll({
     where: { fk_queue_id: queueId },
-    include: [{ model: User }],
+    include: [{
+      model: User
+    }],
   });
 };
