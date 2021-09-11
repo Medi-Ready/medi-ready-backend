@@ -76,11 +76,9 @@ exports.findPatient = async (userInfo) => {
   }
 };
 
-exports.findPharmacist = async (userInfo) => {
-  const { email, user_type } = userInfo;
-
+exports.findPharmacistId = async (userId) => {
   try {
-    return await User.findOne({
+    const user = await User.findOne({
       include: [
         {
           model: Pharmacist,
@@ -88,20 +86,20 @@ exports.findPharmacist = async (userInfo) => {
         },
       ],
       raw: true,
-      where: {
-        email,
-        user_type,
-      },
+      where: { user_id: userId },
     });
+
+    return user["pharmacist.pharmacist_id"];
   } catch (error) {
     throw error;
   }
 };
 
-exports.findPharmacistById = async (userId) => {
-  try {
-    return await Pharmacist.findOne({ fk_user_id: userId });
-  } catch (error) {
-    throw error;
-  }
+exports.dequeue = async (patientId) => {
+  await Patient.update(
+    {
+      fk_queue_id: null,
+    },
+    { where: { patient_id: patientId } }
+  );
 };
