@@ -95,7 +95,6 @@ exports.findPharmacistId = async (userId) => {
   }
 };
 
-<<<<<<< Updated upstream
 exports.dequeue = async (patientId) => {
   await Patient.update(
     {
@@ -103,23 +102,6 @@ exports.dequeue = async (patientId) => {
     },
     { where: { patient_id: patientId } }
   );
-=======
-<<<<<<< Updated upstream
-exports.findPharmacistById = async (userId) => {
-  try {
-    return await Pharmacist.findOne({ pharmacist_id: userId });
-=======
-exports.dequeue = async (id) => {
-  try {
-    await Patient.update(
-      {
-        fk_queue_id: null,
-      },
-      { where: { patient_id: id } }
-    );
-  } catch (error) {
-    throw error;
-  }
 };
 
 exports.changePharmacistSetting = async (id, name, address) => {
@@ -133,9 +115,7 @@ exports.changePharmacistSetting = async (id, name, address) => {
         where: { pharmacist_id: id },
       }
     );
->>>>>>> Stashed changes
   } catch (error) {
     throw error;
   }
->>>>>>> Stashed changes
 };
