@@ -14,22 +14,22 @@ exports.getPatientPrescriptionList = async (userInfo) => {
     const patient = await userService.findPatient(userInfo);
     const patientId = patient["patient.patient_id"];
 
-    const [prescriptions] = await Prescription.findAll({
+    const prescriptions = await Prescription.findAll({
       where: {
         fk_patient_id: patientId,
       },
       include: [
-        { model: Pharmacist },
         { model: DoseHistory },
         {
+          model: Pharmacist,
+          include: [{ model: User }],
+        },
+        {
           model: Medicine,
-          include: [
-            {
-              model: MedicineDetail,
-            },
-          ],
+          include: [{ model: MedicineDetail }],
         },
       ],
+      order: [[DoseHistory, "date", "ASC"]],
     });
 
     return prescriptions;
@@ -38,14 +38,23 @@ exports.getPatientPrescriptionList = async (userInfo) => {
   }
 };
 
-exports.getPharmacistPrescriptionList = async (userInfo) => {
+exports.getPharmacistPrescriptionList = async (userInfo, page) => {
   try {
-    const userId = req.userInfo.user_id;
+    const userId = userInfo.user_id;
     const pharmacistId = await userService.findPharmacistId(userId);
+    const PAGE_LIMIT = 7;
 
     const prescriptions = await Prescription.findAll({
       where: { fk_pharmacist_id: pharmacistId },
-      include: [{ model: Medicine }, { model: Pharmacist }, { model: DoseHistory }],
+      include: [
+        { model: Medicine },
+        { model: Pharmacist },
+        { model: DoseHistory },
+        { model: Patient, include: [{ model: User }] },
+      ],
+      order: [[DoseHistory, "date", "DESC"]],
+      limit: PAGE_LIMIT,
+      offset: PAGE_LIMIT * page,
     });
 
     return prescriptions;
