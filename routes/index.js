@@ -4,7 +4,8 @@ const router = express.Router();
 const { verifyToken } = require("../middlewares/verifyToken");
 
 const loginController = require("./controllers/login.controller");
-const serviceController = require("./controllers/service.controller");
+const queueController = require("./controllers/queue.controller");
+const settingController = require("./controllers/setting.controller");
 const medicineController = require("./controllers/medicine.controller");
 const prescriptionController = require("./controllers/prescription.controller");
 
@@ -22,7 +23,9 @@ router.get(
 
 router.post("/medicine", verifyToken, medicineController.getMedicineDetails);
 
-router.get("/queue", verifyToken, serviceController.getQueue);
-router.post("/queue", verifyToken, serviceController.registerQueue);
+router.get("/queue", verifyToken, queueController.getQueue);
+router.post("/queue", verifyToken, queueController.registerQueue);
+
+router.put("/settings", verifyToken, settingController.changeSetting);
 
 module.exports = router;
