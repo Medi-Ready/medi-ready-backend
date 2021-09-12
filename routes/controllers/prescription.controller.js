@@ -29,25 +29,25 @@ exports.postPrescription = async (req, res, next) => {
 exports.getPrescriptionList = async (req, res, next) => {
   try {
     const { userInfo } = req;
-    let prescriptions = null;
 
     if (!userInfo) {
       return res.json({ result: "fail", message: "unauthorized" });
     }
 
     if (userInfo.user_type === "patient") {
-      prescriptions = await prescriptionService.getPatientPrescriptionList(userInfo);
+      const prescriptions = await prescriptionService.getPatientPrescriptionList(userInfo);
+
+      return res.json({ result: "success", data: prescriptions });
     }
 
     if (userInfo.user_type === "pharmacist") {
-      prescriptions = await prescriptionService.getPharmacistPrescriptionList(userInfo);
-    }
+      const page = parseInt(req.query.page) || 0;
 
-    if (!prescriptions) {
-      return res.json({ result: "fail" });
-    }
+      const prescriptions = await prescriptionService.getPharmacistPrescriptionList(userInfo, page);
+      const hasMore = prescriptions.length === 7;
 
-    res.json({ result: "success", data: prescriptions });
+      res.json({ result: "success", prescriptions, hasMore });
+    }
   } catch (error) {
     next(error);
   }
