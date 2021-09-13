@@ -27,6 +27,8 @@ exports.postPrescription = async (req, res, next) => {
 };
 
 exports.getPrescriptionList = async (req, res, next) => {
+  const DATA_PER_PAGE = 7;
+
   try {
     const { userInfo } = req;
 
@@ -44,9 +46,9 @@ exports.getPrescriptionList = async (req, res, next) => {
       const page = parseInt(req.query.page) || 0;
 
       const prescriptions = await prescriptionService.getPharmacistPrescriptionList(userInfo, page);
-      const hasMore = prescriptions.length === 7;
+      const hasMoreData = prescriptions.length === DATA_PER_PAGE;
 
-      res.json({ result: "success", prescriptions, hasMore });
+      res.json({ result: "success", prescriptions, hasMoreData });
     }
   } catch (error) {
     next(error);
