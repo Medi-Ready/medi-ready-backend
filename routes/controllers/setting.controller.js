@@ -7,10 +7,9 @@ exports.changeSetting = async (req, res, next) => {
 
     const pharmacistId = await userService.findPharmacistId(user_id);
 
-    const test = await userService.changePharmacistSetting(pharmacistId, name, address);
-    console.log(test);
+    const changed = await userService.changePharmacistSetting(pharmacistId, name, address);
 
-    res.json({ result: "success", date: test });
+    res.json({ result: "success", data: changed });
   } catch (error) {
     next(error);
   }
