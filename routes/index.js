@@ -22,10 +22,12 @@ router.get(
 );
 
 router.post("/medicine", verifyToken, medicineController.getMedicineDetails);
+router.post("/medicines", verifyToken, medicineController.getMedicineNames);
 
 router.get("/queue", verifyToken, queueController.getQueue);
 router.post("/queue", verifyToken, queueController.registerQueue);
 
-router.put("/settings", verifyToken, settingController.changeSetting);
+router.put("/settings/information", verifyToken, settingController.changeInfo);
+router.put("/settings/alarm", verifyToken, settingController.changeAlarmTime);
 
 module.exports = router;
