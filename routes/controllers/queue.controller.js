@@ -19,8 +19,7 @@ exports.registerQueue = async (req, res, next) => {
     const [queue] = await queueService.createQueue(pharmacistId);
     const queueId = queue.queue_id;
 
-    const patient = await userService.findPatient(userInfo);
-    const patientId = patient["patient.patient_id"];
+    const patientId = await userService.findPatientId(userId);
 
     await queueService.updateQueue(patientId, queueId);
 
@@ -39,7 +38,7 @@ exports.getQueue = async (req, res, next) => {
 
     const people = await queueService.getQueueList(queueId);
 
-    res.json({ result: "success", data: people });
+    res.json({ result: "success", people });
   } catch (error) {
     next(error);
   }

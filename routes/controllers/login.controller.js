@@ -16,18 +16,27 @@ exports.login = async (req, res, next) => {
       return res.json({ result: "fail", message: "Invalid user data" });
     }
 
-    const user = await userService.findOrCreate(userInfo);
+    const user = await userService.findUser(userInfo);
 
     if (user) {
       const token = encode(user.dataValues);
       res.cookie("token", token, cookieOptions);
 
-      res.status(200).json({
+      return res.status(200).json({
         result: "success",
-        message: "login success",
         data: user.dataValues,
       });
     }
+
+    const newUser = await userService.createUser(userInfo);
+
+    const token = encode(newUser.dataValues);
+    res.cookie("token", token, cookieOptions);
+
+    res.status(200).json({
+      result: "success",
+      data: newUser.dataValues,
+    });
   } catch (error) {
     next(error);
   }

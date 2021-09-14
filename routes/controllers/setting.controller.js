@@ -18,7 +18,11 @@ exports.changeInfo = async (req, res, next) => {
 exports.changeAlarmTime = async (req, res, next) => {
   try {
     const { user_id } = req.userInfo;
-    const { data } = req.body;
+    const { alarmTime } = req.body;
+
+    const patientId = await userService.findPatientId(user_id);
+
+    await userService.changeAlarmSettings(patientId, alarmTime);
 
     res.json({ result: "success", data });
   } catch (error) {
