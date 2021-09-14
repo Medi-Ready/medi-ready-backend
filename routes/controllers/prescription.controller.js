@@ -1,4 +1,5 @@
 const userService = require("../../services/user.service");
+const historyService = require("../../services/history.service");
 const medicineService = require("../../services/medicine.service");
 const prescriptionService = require("../../services/prescription.service");
 
@@ -17,9 +18,9 @@ exports.postPrescription = async (req, res, next) => {
     );
 
     await userService.dequeue(patient_id);
-    await medicineService.createMany(medicines, prescriptionId);
     await medicineService.increaseFrequency(medicines);
-    await prescriptionService.createDoseHistory(patient_id, prescriptionId, duration);
+    await medicineService.createMany(medicines, prescriptionId);
+    await historyService.createDoseHistory(patient_id, prescriptionId, duration);
 
     res.json({ result: "success" });
   } catch (error) {

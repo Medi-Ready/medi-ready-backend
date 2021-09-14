@@ -1,6 +1,6 @@
 const userService = require("../../services/user.service");
 
-exports.changeInfo = async (req, res, next) => {
+exports.updateInformation = async (req, res, next) => {
   try {
     const { user_id } = req.userInfo;
     const { name, address } = req.body;
@@ -15,7 +15,7 @@ exports.changeInfo = async (req, res, next) => {
   }
 };
 
-exports.changeAlarmTime = async (req, res, next) => {
+exports.updateAlarmTime = async (req, res, next) => {
   try {
     const { user_id } = req.userInfo;
     const { alarmTime } = req.body;
