@@ -15,6 +15,18 @@ exports.updateInformation = async (req, res, next) => {
   }
 };
 
+exports.getInformation = async (req, res, next) => {
+  try {
+    const { user_id } = req.userInfo;
+
+    const data = await userService.findPharmacistInfo(user_id);
+
+    res.json({ result: "success", data });
+  } catch (error) {
+    next(error);
+  }
+};
+
 exports.updateAlarmTime = async (req, res, next) => {
   try {
     const { user_id } = req.userInfo;
