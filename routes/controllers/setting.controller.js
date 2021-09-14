@@ -24,7 +24,19 @@ exports.changeAlarmTime = async (req, res, next) => {
 
     await userService.changeAlarmSettings(patientId, alarmTime);
 
-    res.json({ result: "success", data });
+    res.json({ result: "success", data: alarmTime });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.getAlarmTime = async (req, res, next) => {
+  const { user_id: userId } = req.userInfo;
+
+  try {
+    const alarm = await userService.findAlarmTime(userId);
+
+    res.json({ result: "success", data: alarm });
   } catch (error) {
     next(error);
   }
