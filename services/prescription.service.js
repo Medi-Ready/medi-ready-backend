@@ -1,5 +1,6 @@
 const {
   User,
+  Alarm,
   Patient,
   Medicine,
   Pharmacist,
@@ -9,10 +10,9 @@ const {
 } = require("../models");
 const userService = require("./user.service");
 
-exports.getPatientPrescriptionList = async (userInfo) => {
+exports.getPatientPrescriptionList = async (userId) => {
   try {
-    const patient = await userService.findPatient(userInfo);
-    const patientId = patient["patient.patient_id"];
+    const patientId = await userService.findPatientId(userId);
 
     const prescriptions = await Prescription.findAll({
       where: {
@@ -22,7 +22,12 @@ exports.getPatientPrescriptionList = async (userInfo) => {
         { model: DoseHistory },
         {
           model: Pharmacist,
-          include: [{ model: User }],
+          include: [
+            {
+              model: User,
+              include: [{ model: Alarm }],
+            },
+          ],
         },
         {
           model: Medicine,
@@ -47,7 +52,7 @@ exports.getPharmacistPrescriptionList = async (userInfo, page) => {
     const prescriptions = await Prescription.findAll({
       where: { fk_pharmacist_id: pharmacistId },
       include: [
-        { model: Medicine, include: [{ model: MedicineDetail }] },
+        { model: Medicine },
         { model: Pharmacist },
         { model: DoseHistory },
         { model: Patient, include: [{ model: User }] },

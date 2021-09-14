@@ -18,6 +18,7 @@ exports.postPrescription = async (req, res, next) => {
 
     await userService.dequeue(patient_id);
     await medicineService.createMany(medicines, prescriptionId);
+    await medicineService.increaseFrequency(medicines);
     await prescriptionService.createDoseHistory(patient_id, prescriptionId, duration);
 
     res.json({ result: "success" });
@@ -27,17 +28,16 @@ exports.postPrescription = async (req, res, next) => {
 };
 
 exports.getPrescriptionList = async (req, res, next) => {
-  const DATA_PER_PAGE = 7;
-
   try {
     const { userInfo } = req;
+    const { user_id } = req.userInfo;
 
     if (!userInfo) {
       return res.json({ result: "fail", message: "unauthorized" });
     }
 
     if (userInfo.user_type === "patient") {
-      const prescriptions = await prescriptionService.getPatientPrescriptionList(userInfo);
+      const prescriptions = await prescriptionService.getPatientPrescriptionList(user_id);
 
       return res.json({ result: "success", data: prescriptions });
     }
@@ -46,9 +46,9 @@ exports.getPrescriptionList = async (req, res, next) => {
       const page = parseInt(req.query.page) || 0;
 
       const prescriptions = await prescriptionService.getPharmacistPrescriptionList(userInfo, page);
-      const hasMoreData = prescriptions.length === DATA_PER_PAGE;
+      const hasMore = prescriptions.length === 7;
 
-      res.json({ result: "success", prescriptions, hasMoreData });
+      res.json({ result: "success", prescriptions, hasMore });
     }
   } catch (error) {
     next(error);

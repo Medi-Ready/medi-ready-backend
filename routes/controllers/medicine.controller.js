@@ -8,7 +8,7 @@ exports.getMedicineDetails = async (req, res, next) => {
 
   const medicine = await MedicineDetail.findOne({
     where: {
-      name: {
+      itemName: {
         [Op.like]: "%" + name + "%",
       },
     },
@@ -22,19 +22,20 @@ exports.getMedicineDetails = async (req, res, next) => {
 };
 
 exports.getMedicineNames = async (req, res, next) => {
-  const { keyword } = req.body;
+  const { search } = req.query;
 
-  const medicine = await MedicineDetail.findAll({
+  const medicines = await MedicineDetail.findAll({
     where: {
-      name: {
-        [Op.like]: "%" + keyword + "%",
+      itemName: {
+        [Op.like]: "%" + search.trim() + "%",
       },
     },
+    order: [["frequency", "DESC"]],
   });
 
-  if (!medicine) {
+  if (!medicines) {
     return res.json({ result: "fail", data: null });
   }
 
-  res.json({ result: "success", data: medicine });
+  res.json({ result: "success", data: medicines.slice(0, 10) });
 };
