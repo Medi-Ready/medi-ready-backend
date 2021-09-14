@@ -7,18 +7,14 @@ const MedicineDetail = (sequelize, DataTypes) => {
         primaryKey: true,
         allowNull: false,
       },
-      company: {
-        type: DataTypes.STRING(30),
-      },
-      name: {
+      itemName: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false,
       },
-      efficiency: {
-        type: DataTypes.TEXT,
-      },
-      side_effect: {
-        type: DataTypes.TEXT,
+      frequency: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        defaultValue: 0,
       },
     },
     {
