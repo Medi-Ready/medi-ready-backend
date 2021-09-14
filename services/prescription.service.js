@@ -52,7 +52,7 @@ exports.getPharmacistPrescriptionList = async (userInfo, page) => {
     const prescriptions = await Prescription.findAll({
       where: { fk_pharmacist_id: pharmacistId },
       include: [
-        { model: Medicine },
+        { model: Medicine, include: [{ model: MedicineDetail }] },
         { model: Pharmacist },
         { model: DoseHistory },
         { model: Patient, include: [{ model: User }] },

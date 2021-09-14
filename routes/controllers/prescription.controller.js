@@ -43,12 +43,12 @@ exports.getPrescriptionList = async (req, res, next) => {
     }
 
     if (userInfo.user_type === "pharmacist") {
-      const page = parseInt(req.query.page) || 0;
+      const page = parseInt(req.query.page, 10) || 0;
 
       const prescriptions = await prescriptionService.getPharmacistPrescriptionList(userInfo, page);
-      const hasMore = prescriptions.length === 7;
+      const hasMoreData = prescriptions.length === 7;
 
-      res.json({ result: "success", prescriptions, hasMore });
+      res.json({ result: "success", prescriptions, hasMoreData });
     }
   } catch (error) {
     next(error);
