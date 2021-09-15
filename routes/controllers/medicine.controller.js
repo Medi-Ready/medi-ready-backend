@@ -6,36 +6,44 @@ const Op = sequelize.Op;
 exports.getMedicineDetails = async (req, res, next) => {
   const { name } = req.body;
 
-  const medicine = await MedicineDetail.findOne({
-    where: {
-      itemName: {
-        [Op.like]: "%" + name + "%",
+  try {
+    const medicine = await MedicineDetail.findOne({
+      where: {
+        itemName: {
+          [Op.like]: "%" + name + "%",
+        },
       },
-    },
-  });
+    });
 
-  if (!medicine) {
-    return res.json({ result: "fail", data: null });
+    if (!medicine) {
+      return res.json({ result: "fail", data: null });
+    }
+
+    res.json({ result: "success", data: medicine });
+  } catch (error) {
+    res.json({ result: "fail" });
   }
-
-  res.json({ result: "success", data: medicine });
 };
 
 exports.getMedicineNames = async (req, res, next) => {
   const { search } = req.query;
 
-  const medicines = await MedicineDetail.findAll({
-    where: {
-      itemName: {
-        [Op.like]: "%" + search.trim() + "%",
+  try {
+    const medicines = await MedicineDetail.findAll({
+      where: {
+        itemName: {
+          [Op.like]: "%" + search.trim() + "%",
+        },
       },
-    },
-    order: [["frequency", "DESC"]],
-  });
+      order: [["frequency", "DESC"]],
+    });
 
-  if (!medicines) {
-    return res.json({ result: "fail", data: null });
+    if (!medicines) {
+      return res.json({ result: "fail", data: null });
+    }
+
+    res.json({ result: "success", data: medicines.slice(0, 10) });
+  } catch (error) {
+    res.json({ result: "fail" });
   }
-
-  res.json({ result: "success", data: medicines.slice(0, 10) });
 };

@@ -95,12 +95,16 @@ exports.findPharmacistId = async (userId) => {
 };
 
 exports.dequeue = async (patientId) => {
-  await Patient.update(
-    {
-      fk_queue_id: null,
-    },
-    { where: { patient_id: patientId } }
-  );
+  try {
+    await Patient.update(
+      {
+        fk_queue_id: null,
+      },
+      { where: { patient_id: patientId } }
+    );
+  } catch (error) {
+    throw error;
+  }
 };
 
 exports.changePharmacistSetting = async (id, name, address) => {
@@ -140,14 +144,18 @@ exports.changeAlarmSettings = async (patientId, alarmTime) => {
 };
 
 exports.findPharmacistInfo = async (userId) => {
-  return await User.findOne({
-    where: { user_id: userId },
-    include: [
-      {
-        model: Pharmacist,
-        attributes: ["pharmacy_name", "pharmacy_address"],
-      },
-    ],
-    raw: true,
-  });
+  try {
+    return await User.findOne({
+      where: { user_id: userId },
+      include: [
+        {
+          model: Pharmacist,
+          attributes: ["pharmacy_name", "pharmacy_address"],
+        },
+      ],
+      raw: true,
+    });
+  } catch (error) {
+    throw error;
+  }
 };

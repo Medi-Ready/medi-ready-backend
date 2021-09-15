@@ -21,6 +21,8 @@ router.get(
   verifyToken,
   prescriptionController.getPrescriptionDetails
 );
+
+router.put("/alarms/:prescriptionId", verifyToken, prescriptionController.updateAlarm);
 router.put("/doseHistory/:doseHistoryId", verifyToken, historyController.updateDoseHistory);
 
 router.post("/medicine", verifyToken, medicineController.getMedicineDetails);
