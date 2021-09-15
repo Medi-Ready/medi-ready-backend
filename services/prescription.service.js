@@ -110,21 +110,3 @@ exports.create = async (patientId, pharmacistId, duration, description, doseTime
     throw error;
   }
 };
-
-exports.createDoseHistory = async (patientId, prescriptionId, duration) => {
-  const DAY = 86400000;
-  const now = new Date().getTime();
-  const expirationDate = new Date().getTime() + duration * DAY;
-
-  let count = 0;
-
-  while (now + count * DAY <= expirationDate) {
-    await DoseHistory.create({
-      fk_prescription_id: prescriptionId,
-      fk_patient_id: patientId,
-      date: now + count * DAY,
-    });
-
-    count += 1;
-  }
-};

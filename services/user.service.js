@@ -139,14 +139,15 @@ exports.changeAlarmSettings = async (patientId, alarmTime) => {
   }
 };
 
-exports.findAlarmTime = async (userId) => {
-  const patientId = await this.findPatientId(userId);
-
-  try {
-    return await Alarm.findOne({
-      fk_patient_id: patientId,
-    });
-  } catch (error) {
-    throw error;
-  }
+exports.findPharmacistInfo = async (userId) => {
+  return await User.findOne({
+    where: { user_id: userId },
+    include: [
+      {
+        model: Pharmacist,
+        attributes: ["pharmacy_name", "pharmacy_address"],
+      },
+    ],
+    raw: true,
+  });
 };
