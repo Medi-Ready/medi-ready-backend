@@ -27,6 +27,8 @@ router.get("/medicines", verifyToken, medicineController.getMedicineNames);
 router.get("/queue", verifyToken, queueController.getQueue);
 router.post("/queue", verifyToken, queueController.registerQueue);
 
+router.get("/alarm-time", verifyToken, settingController.getAlarmTime);
+
 router.put("/settings/information", verifyToken, settingController.changeInfo);
 router.put("/settings/alarm-time", verifyToken, settingController.changeAlarmTime);
 

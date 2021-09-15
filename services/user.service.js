@@ -138,3 +138,15 @@ exports.changeAlarmSettings = async (patientId, alarmTime) => {
     throw error;
   }
 };
+
+exports.findAlarmTime = async (userId) => {
+  const patientId = await this.findPatientId(userId);
+
+  try {
+    return await Alarm.findOne({
+      fk_patient_id: patientId,
+    });
+  } catch (error) {
+    throw error;
+  }
+};
