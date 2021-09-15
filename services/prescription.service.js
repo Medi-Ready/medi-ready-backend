@@ -110,3 +110,28 @@ exports.create = async (patientId, pharmacistId, duration, description, doseTime
     throw error;
   }
 };
+
+exports.toggleAlarm = async (id) => {
+  try {
+    const prescription = await Prescription.findOne({
+      where: { prescription_id: id },
+    });
+
+    const previousValue = prescription.dataValues.is_alarm_on;
+
+    await Prescription.update(
+      {
+        is_alarm_on: !previousValue,
+      },
+      {
+        where: {
+          prescription_id: id,
+        },
+      }
+    );
+
+    return !previousValue;
+  } catch (error) {
+    throw error;
+  }
+};

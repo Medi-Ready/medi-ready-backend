@@ -29,13 +29,17 @@ exports.createDoseHistory = async (patientId, prescriptionId, duration) => {
 
   let count = 0;
 
-  while (now + count * DAY <= expirationDate) {
-    await DoseHistory.create({
-      fk_prescription_id: prescriptionId,
-      fk_patient_id: patientId,
-      date: now + count * DAY,
-    });
+  try {
+    while (now + count * DAY <= expirationDate) {
+      await DoseHistory.create({
+        fk_prescription_id: prescriptionId,
+        fk_patient_id: patientId,
+        date: now + count * DAY,
+      });
 
-    count += 1;
+      count += 1;
+    }
+  } catch (error) {
+    throw error;
   }
 };

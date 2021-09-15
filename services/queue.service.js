@@ -25,20 +25,28 @@ exports.updateQueue = async (patientId, queueId) => {
 };
 
 exports.findQueue = async (pharmacistId) => {
-  return await Pharmacist.findOne({
-    include: [
-      {
-        model: Queue,
-      },
-    ],
-    where: { fk_user_id: pharmacistId },
-    raw: true,
-  });
+  try {
+    return await Pharmacist.findOne({
+      include: [
+        {
+          model: Queue,
+        },
+      ],
+      where: { fk_user_id: pharmacistId },
+      raw: true,
+    });
+  } catch (error) {
+    throw error;
+  }
 };
 
 exports.getQueueList = async (queueId) => {
-  return await Patient.findAll({
-    where: { fk_queue_id: queueId },
-    include: [{ model: User }],
-  });
+  try {
+    return await Patient.findAll({
+      where: { fk_queue_id: queueId },
+      include: [{ model: User }],
+    });
+  } catch (error) {
+    throw error;
+  }
 };
