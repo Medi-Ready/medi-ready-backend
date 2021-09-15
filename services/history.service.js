@@ -1,7 +1,7 @@
 const { DoseHistory } = require("../models");
 
 exports.updateHistory = async (id, data) => {
-  const { morning, lunch, dinner, beforeBed } = data;
+  const { morning, lunch, dinner, before_bed } = data;
 
   try {
     return await DoseHistory.update(
@@ -9,7 +9,7 @@ exports.updateHistory = async (id, data) => {
         morning,
         lunch,
         dinner,
-        before_bed: beforeBed,
+        before_bed,
       },
       {
         where: {
@@ -38,12 +38,4 @@ exports.createDoseHistory = async (patientId, prescriptionId, duration) => {
 
     count += 1;
   }
-};
-
-exports.findPrescription = async (id) => {
-  return await DoseHistory.findOne({
-    where: {
-      dose_history_id: id,
-    },
-  });
 };

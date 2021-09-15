@@ -6,12 +6,8 @@ exports.updateDoseHistory = async (req, res, next) => {
     const { doseHistoryId } = req.params;
 
     await historyService.updateHistory(doseHistoryId, doseHistory);
-    const prescription = await historyService.findPrescription(doseHistoryId);
-    const prescriptionId = prescription.dataValues["fk_prescription_id"];
 
-    const updatedHistory = { ...doseHistory, prescription_id: prescriptionId };
-
-    res.json({ result: "success", data: updatedHistory });
+    res.json({ result: "success" });
   } catch (error) {
     next(error);
   }
