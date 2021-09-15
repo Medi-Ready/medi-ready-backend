@@ -23,6 +23,22 @@ const Prescription = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         defaultValue: "please enter description",
       },
+      morning: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      lunch: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      dinner: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      before_bed: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       created_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,

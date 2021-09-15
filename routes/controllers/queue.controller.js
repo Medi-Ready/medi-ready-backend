@@ -19,7 +19,7 @@ exports.registerQueue = async (req, res, next) => {
     const [queue] = await queueService.createQueue(pharmacistId);
     const queueId = queue.queue_id;
 
-    const patientId = await userService.findPatientId(userId);
+    const patientId = await userService.findPatientId(userInfo.user_id);
 
     await queueService.updateQueue(patientId, queueId);
 

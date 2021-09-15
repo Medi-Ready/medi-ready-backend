@@ -5,7 +5,7 @@ const prescriptionService = require("../../services/prescription.service");
 
 exports.postPrescription = async (req, res, next) => {
   const userId = req.userInfo.user_id;
-  const { medicines, duration, patient_id, description } = req.body;
+  const { medicines, duration, patient_id, description, doseTimes } = req.body;
 
   try {
     const pharmacistId = await userService.findPharmacistId(userId);
@@ -14,7 +14,8 @@ exports.postPrescription = async (req, res, next) => {
       patient_id,
       pharmacistId,
       duration || 3,
-      description || "description"
+      description || "description",
+      doseTimes
     );
 
     await userService.dequeue(patient_id);

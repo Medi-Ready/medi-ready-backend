@@ -20,12 +20,12 @@ exports.getPatientPrescriptionList = async (userId) => {
       },
       include: [
         { model: DoseHistory },
+        { model: Alarm },
         {
           model: Pharmacist,
           include: [
             {
               model: User,
-              include: [{ model: Alarm }],
             },
           ],
         },
@@ -89,18 +89,21 @@ exports.getDetails = async (id) => {
   }
 };
 
-exports.create = async (patientId, pharmacistId, duration, description) => {
+exports.create = async (patientId, pharmacistId, duration, description, doseTimes) => {
   const DAY = 86400000;
   const expirationDate = new Date().getTime() + duration * DAY;
 
+  const prescriptionDetails = {
+    is_alarm_on: true,
+    fk_patient_id: patientId,
+    fk_pharmacist_id: pharmacistId,
+    expiration_date: expirationDate,
+    description,
+    ...doseTimes,
+  };
+
   try {
-    const prescription = await Prescription.create({
-      is_alarm_on: true,
-      fk_patient_id: patientId,
-      fk_pharmacist_id: pharmacistId,
-      expiration_date: expirationDate,
-      description,
-    });
+    const prescription = await Prescription.create(prescriptionDetails);
 
     return prescription.dataValues.prescription_id;
   } catch (error) {
