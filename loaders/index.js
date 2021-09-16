@@ -8,7 +8,7 @@ const env = process.env;
 const initLoaders = (app) => {
   app.use(
     cors({
-      origin: env.ORIGIN_URI_DEV,
+      origin: "*",
       credentials: true,
     })
   );
