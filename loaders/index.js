@@ -3,8 +3,6 @@ const logger = require("morgan");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 
-const env = process.env;
-
 const initLoaders = (app) => {
   app.use(
     cors({
