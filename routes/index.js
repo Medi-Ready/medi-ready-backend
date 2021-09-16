@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { verifyToken } = require("../middlewares/verifyToken");
 
+const userController = require("./controllers/user.controller");
 const loginController = require("./controllers/login.controller");
 const queueController = require("./controllers/queue.controller");
 const settingController = require("./controllers/setting.controller");
@@ -27,6 +28,8 @@ router.put("/doseHistory/:doseHistoryId", verifyToken, historyController.updateD
 
 router.post("/medicine", verifyToken, medicineController.getMedicineDetails);
 router.get("/medicines", verifyToken, medicineController.getMedicineNames);
+
+router.get("/alarm-time", verifyToken, userController.getAlarmTime);
 
 router.get("/queue", verifyToken, queueController.getQueue);
 router.post("/queue", verifyToken, queueController.registerQueue);

@@ -20,7 +20,6 @@ exports.getPatientPrescriptionList = async (userId) => {
       },
       include: [
         { model: DoseHistory },
-        { model: Alarm },
         {
           model: Pharmacist,
           include: [
