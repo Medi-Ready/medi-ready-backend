@@ -35,4 +35,7 @@ router.get("/settings/information", verifyToken, settingController.getInformatio
 router.put("/settings/information", verifyToken, settingController.updateInformation);
 router.put("/settings/alarm-time", verifyToken, settingController.updateAlarmTime);
 
+router.put("/alarms/:prescriptionId", verifyToken, prescriptionController.updateAlarm);
+router.put("/notification", verifyToken, notificationController.updatePushNotification);
+
 module.exports = router;
