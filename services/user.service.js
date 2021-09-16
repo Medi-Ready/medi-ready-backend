@@ -123,6 +123,10 @@ exports.changePharmacistSetting = async (id, name, address) => {
   }
 };
 
+exports.getAlarmTime = async (patientId) => {
+  return await Alarm.findOne({ fk_patient_id: patientId });
+};
+
 exports.changeAlarmSettings = async (patientId, alarmTime) => {
   const { morning, lunch, dinner, beforeBed } = alarmTime;
 
