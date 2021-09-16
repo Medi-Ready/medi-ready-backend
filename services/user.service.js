@@ -124,7 +124,7 @@ exports.changePharmacistSetting = async (id, name, address) => {
 };
 
 exports.getAlarmTime = async (patientId) => {
-  return await Alarm.findOne({ fk_patient_id: patientId });
+  return await Alarm.findOne({ where: { fk_patient_id: patientId } });
 };
 
 exports.changeAlarmSettings = async (patientId, alarmTime) => {
