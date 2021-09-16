@@ -27,6 +27,10 @@ const User = (sequelize, DataTypes) => {
       picture: {
         type: DataTypes.STRING,
       },
+      notification_token: {
+        type: DataTypes.STRING,
+        defaultValue: null,
+      },
       created_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
