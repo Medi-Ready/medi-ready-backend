@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const initLoaders = (app) => {
   app.use(
     cors({
-      origin: "*",
+      origin: process.env.CLIENT_URL,
       credentials: true,
     })
   );
