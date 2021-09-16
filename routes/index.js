@@ -23,6 +23,11 @@ router.get(
   verifyToken,
   prescriptionController.getPrescriptionDetails
 );
+router.delete(
+  "/prescriptions/:prescriptionId",
+  verifyToken,
+  prescriptionController.deletePrescription
+);
 
 router.put("/doseHistory/:doseHistoryId", verifyToken, historyController.updateDoseHistory);
 
@@ -39,6 +44,6 @@ router.put("/settings/information", verifyToken, settingController.updateInforma
 router.put("/settings/alarm-time", verifyToken, settingController.updateAlarmTime);
 
 router.put("/alarms/:prescriptionId", verifyToken, prescriptionController.updateAlarm);
-router.put("/notification", verifyToken, notificationController.updatePushNotification);
+router.put("/notification", verifyToken, notificationController.updatePushNotificationToken);
 
 module.exports = router;

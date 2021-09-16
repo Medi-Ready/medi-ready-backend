@@ -80,3 +80,15 @@ exports.updateAlarm = async (req, res, next) => {
     res.json({ result: "fail" });
   }
 };
+
+exports.deletePrescription = async (req, res, next) => {
+  const { prescriptionId } = req.params;
+
+  try {
+    const result = await prescriptionService.toggleIsDeleted(prescriptionId);
+
+    res.json({ result: "success", data: result });
+  } catch (error) {
+    res.json({ result: "fail" });
+  }
+};

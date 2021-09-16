@@ -134,3 +134,28 @@ exports.toggleAlarm = async (id) => {
     throw error;
   }
 };
+
+exports.toggleIsDeleted = async (id) => {
+  try {
+    const prescription = await Prescription.findOne({
+      where: { prescription_id: id },
+    });
+
+    const previousValue = prescription.dataValues.is_deleted;
+
+    await Prescription.update(
+      {
+        is_deleted: !previousValue,
+      },
+      {
+        where: {
+          prescription_id: id,
+        },
+      }
+    );
+
+    return !previousValue;
+  } catch (error) {
+    throw error;
+  }
+};
