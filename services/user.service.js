@@ -159,3 +159,18 @@ exports.findPharmacistInfo = async (userId) => {
     throw error;
   }
 };
+
+exports.updateNotificationToken = async (userId, notificationToken) => {
+  try {
+    await User.update(
+      {
+        notification_token: notificationToken,
+      },
+      {
+        where: { user_id: userId },
+      }
+    );
+  } catch (error) {
+    throw error;
+  }
+};

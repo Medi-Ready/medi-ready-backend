@@ -8,6 +8,7 @@ const queueController = require("./controllers/queue.controller");
 const settingController = require("./controllers/setting.controller");
 const historyController = require("./controllers/history.controller");
 const medicineController = require("./controllers/medicine.controller");
+const notificationController = require("./controllers/notification.controller");
 const prescriptionController = require("./controllers/prescription.controller");
 
 router.post("/login", loginController.login);
@@ -22,7 +23,6 @@ router.get(
   prescriptionController.getPrescriptionDetails
 );
 
-router.put("/alarms/:prescriptionId", verifyToken, prescriptionController.updateAlarm);
 router.put("/doseHistory/:doseHistoryId", verifyToken, historyController.updateDoseHistory);
 
 router.post("/medicine", verifyToken, medicineController.getMedicineDetails);
@@ -34,5 +34,9 @@ router.post("/queue", verifyToken, queueController.registerQueue);
 router.get("/settings/information", verifyToken, settingController.getInformation);
 router.put("/settings/information", verifyToken, settingController.updateInformation);
 router.put("/settings/alarm-time", verifyToken, settingController.updateAlarmTime);
+
+router.put("/alarms/:prescriptionId", verifyToken, prescriptionController.updateAlarm);
+
+router.put("/notification", verifyToken, notificationController.postPushNotification);
 
 module.exports = router;
