@@ -103,8 +103,9 @@ exports.create = async (patientId, pharmacistId, duration, description, doseTime
 
   try {
     const prescription = await Prescription.create(prescriptionDetails);
+    const { prescription_id } = prescription.dataValues;
 
-    return prescription.dataValues.prescription_id;
+    return prescription_id;
   } catch (error) {
     throw error;
   }
