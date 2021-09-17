@@ -1,6 +1,6 @@
 const userService = require("../../services/user.service");
 
-exports.updatePushNotification = async (req, res, next) => {
+exports.updatePushNotificationToken = async (req, res, next) => {
   try {
     const { user_id } = req.userInfo;
     const { notificationToken } = req.body;

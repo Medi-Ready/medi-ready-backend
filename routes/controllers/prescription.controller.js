@@ -19,6 +19,7 @@ exports.postPrescription = async (req, res, next) => {
     );
 
     await userService.dequeue(patient_id);
+    await userService.registerPushNotification(patient_id, duration, doseTimes);
     await medicineService.increaseFrequency(medicines);
     await medicineService.createMany(medicines, prescriptionId);
     await historyService.createDoseHistory(patient_id, prescriptionId, duration);
@@ -76,6 +77,18 @@ exports.updateAlarm = async (req, res, next) => {
     const result = await prescriptionService.toggleAlarm(prescriptionId);
 
     res.json({ result: "success", data: result });
+  } catch (error) {
+    res.json({ result: "fail" });
+  }
+};
+
+exports.deletePrescription = async (req, res, next) => {
+  const { prescriptionId } = req.params;
+
+  try {
+    await prescriptionService.toggleIsDeleted(prescriptionId);
+
+    res.json({ result: "success" });
   } catch (error) {
     res.json({ result: "fail" });
   }

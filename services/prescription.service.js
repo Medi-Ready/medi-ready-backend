@@ -1,6 +1,5 @@
 const {
   User,
-  Alarm,
   Patient,
   Medicine,
   Pharmacist,
@@ -103,8 +102,9 @@ exports.create = async (patientId, pharmacistId, duration, description, doseTime
 
   try {
     const prescription = await Prescription.create(prescriptionDetails);
+    const { prescription_id } = prescription.dataValues;
 
-    return prescription.dataValues.prescription_id;
+    return prescription_id;
   } catch (error) {
     throw error;
   }
@@ -121,6 +121,31 @@ exports.toggleAlarm = async (id) => {
     await Prescription.update(
       {
         is_alarm_on: !previousValue,
+      },
+      {
+        where: {
+          prescription_id: id,
+        },
+      }
+    );
+
+    return !previousValue;
+  } catch (error) {
+    throw error;
+  }
+};
+
+exports.toggleIsDeleted = async (id) => {
+  try {
+    const prescription = await Prescription.findOne({
+      where: { prescription_id: id },
+    });
+
+    const previousValue = prescription.dataValues.is_deleted;
+
+    await Prescription.update(
+      {
+        is_deleted: !previousValue,
       },
       {
         where: {

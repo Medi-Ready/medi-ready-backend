@@ -1,5 +1,7 @@
 const { User, Patient, Pharmacist, Queue, Alarm } = require("../models");
 
+const fetchToNotificationServer = require("../utils/sendNotifications");
+
 const PHARMACIST = "pharmacist";
 const PATIENT = "patient";
 
@@ -174,6 +176,39 @@ exports.updateNotificationToken = async (userId, notificationToken) => {
         where: { user_id: userId },
       }
     );
+  } catch (error) {
+    throw error;
+  }
+};
+
+exports.registerPushNotification = async (patientId, duration, doseTimes) => {
+  try {
+    const patient = await Patient.findOne({
+      where: { patient_id: patientId },
+      raw: true,
+    });
+    const patientUserId = patient.fk_user_id;
+
+    const user = await User.findOne({
+      where: { user_id: patientUserId },
+      raw: true,
+    });
+
+    const notificationToken = user.notification_token;
+
+    const alarmTime = await Alarm.findOne({
+      where: { fk_patient_id: patientId },
+      raw: true,
+    });
+
+    const information = {
+      notificationToken,
+      duration,
+      alarmTime,
+      doseTimes,
+    };
+
+    fetchToNotificationServer(information);
   } catch (error) {
     throw error;
   }
