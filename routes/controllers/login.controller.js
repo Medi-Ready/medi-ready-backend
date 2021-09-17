@@ -1,4 +1,5 @@
 const { encode } = require("../../utils/jwt");
+
 const userService = require("../../services/user.service");
 
 const DAY = 1000 * 60 * 60 * 24;
@@ -48,5 +49,18 @@ exports.logout = async (req, res, next) => {
 };
 
 exports.authorize = async (req, res, next) => {
+  const { user_type, user_id } = req.userInfo;
+
+  if (user_type === "pharmacist") {
+    const pharmacyInformation = await userService.findPharmacistInfo(user_id);
+
+    return res.json({
+      result: "success",
+      message: "authorized",
+      data: req.userInfo,
+      pharmacyInformation,
+    });
+  }
+
   res.json({ result: "success", message: "authorized", data: req.userInfo });
 };

@@ -149,7 +149,7 @@ exports.changeAlarmSettings = async (patientId, alarmTime) => {
 
 exports.findPharmacistInfo = async (userId) => {
   try {
-    return await User.findOne({
+    const pharmacist = await User.findOne({
       where: { user_id: userId },
       include: [
         {
@@ -159,6 +159,11 @@ exports.findPharmacistInfo = async (userId) => {
       ],
       raw: true,
     });
+
+    const pharmacy_name = pharmacist["pharmacist.pharmacy_name"];
+    const pharmacy_address = pharmacist["pharmacist.pharmacy_address"];
+
+    return { pharmacy_name, pharmacy_address };
   } catch (error) {
     throw error;
   }
