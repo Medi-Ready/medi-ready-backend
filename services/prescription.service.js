@@ -1,6 +1,5 @@
 const {
   User,
-  Alarm,
   Patient,
   Medicine,
   Pharmacist,
