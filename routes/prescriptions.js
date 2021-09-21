@@ -6,7 +6,7 @@ const {
   postPrescription,
   deletePrescription,
   getPrescriptionList,
-} = require("./controllers/prescription.controller");
+} = require("../controllers/prescription.controller");
 
 const { verifyToken } = require("../middlewares/verifyToken");
 

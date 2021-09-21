@@ -1,5 +1,5 @@
-const { MESSAGE } = require("../../constants");
-const userService = require("../../services/user.service");
+const { MESSAGE } = require("../constants");
+const userService = require("../services/user.service");
 
 exports.updatePushNotificationToken = async (req, res, next) => {
   try {

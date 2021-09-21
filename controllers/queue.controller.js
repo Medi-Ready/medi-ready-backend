@@ -1,6 +1,6 @@
-const { MESSAGE } = require("../../constants");
-const queueService = require("../../services/queue.service");
-const userService = require("../../services/user.service");
+const { MESSAGE } = require("../constants");
+const queueService = require("../services/queue.service");
+const userService = require("../services/user.service");
 
 exports.registerQueue = async (req, res, next) => {
   try {

@@ -1,10 +1,10 @@
 const createError = require("http-errors");
 
-const { NUMBER, USER_TYPE } = require("../../constants");
-const userService = require("../../services/user.service");
-const historyService = require("../../services/history.service");
-const medicineService = require("../../services/medicine.service");
-const prescriptionService = require("../../services/prescription.service");
+const { NUMBER, USER_TYPE } = require("../constants");
+const userService = require("../services/user.service");
+const historyService = require("../services/history.service");
+const medicineService = require("../services/medicine.service");
+const prescriptionService = require("../services/prescription.service");
 
 exports.postPrescription = async (req, res, next) => {
   const userId = req.userInfo.user_id;

@@ -9,7 +9,7 @@ const {
   getInformation,
   updateAlarmTime,
   updateInformation,
-} = require("./controllers/setting.controller");
+} = require("../controllers/setting.controller");
 
 router.get("/information", verifyToken, getInformation);
 router.put("/information", verifyToken, validateInformation, updateInformation);

@@ -1,4 +1,4 @@
-const historyService = require("../../services/history.service");
+const historyService = require("../services/history.service");
 
 exports.updateDoseHistory = async (req, res, next) => {
   try {

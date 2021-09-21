@@ -1,4 +1,4 @@
-const userService = require("../../services/user.service");
+const userService = require("../services/user.service");
 
 exports.getAlarmTime = async (req, res, next) => {
   const { user_id } = req.userInfo;

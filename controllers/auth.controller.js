@@ -1,8 +1,8 @@
-const userService = require("../../services/user.service");
+const userService = require("../services/user.service");
 const createError = require("http-errors");
 
-const { encode } = require("../../utils/jwt");
-const { NUMBER, MESSAGE, USER_TYPE } = require("../../constants");
+const { encode } = require("../utils/jwt");
+const { NUMBER, MESSAGE, USER_TYPE } = require("../constants");
 
 const cookieOptions = {
   path: "/",

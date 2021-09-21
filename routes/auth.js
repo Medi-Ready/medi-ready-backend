@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { verifyToken } = require("../middlewares/verifyToken");
-const { login, logout, authorize } = require("./controllers/auth.controller");
+const { login, logout, authorize } = require("../controllers/auth.controller");
 
 router.post("/login", login);
 
