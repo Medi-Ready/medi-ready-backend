@@ -1,49 +1,43 @@
-const sequelize = require("sequelize");
-const { MedicineDetail } = require("../../models");
+const { MESSAGE } = require("../../constants");
+const isValid = require("../../utils/isValid");
+const medicineService = require("../../services/medicine.service");
 
-const Op = sequelize.Op;
-
-exports.getMedicineDetails = async (req, res, next) => {
-  const { name } = req.body;
+exports.getMedicine = async (req, res, next) => {
+  const { name } = req.query;
 
   try {
-    const medicine = await MedicineDetail.findOne({
-      where: {
-        itemName: {
-          [Op.like]: "%" + name + "%",
-        },
-      },
-    });
-
-    if (!medicine) {
-      return res.json({ result: "fail", data: null });
+    if (!isValid.input(name)) {
+      throw createError(400, MESSAGE.INVALID_MEDICINE_NAME);
     }
 
-    res.json({ result: "success", data: medicine });
+    const medicine = await medicineService.getMedicineName(name);
+
+    if (!medicine) {
+      return res.status(200).json({ result: "fail", data: null });
+    }
+
+    res.status(200).json({ result: "success", data: medicine });
   } catch (error) {
-    res.json({ result: "fail" });
+    next(error);
   }
 };
 
-exports.getMedicineNames = async (req, res, next) => {
+exports.getMedicines = async (req, res, next) => {
   const { search } = req.query;
 
   try {
-    const medicines = await MedicineDetail.findAll({
-      where: {
-        itemName: {
-          [Op.like]: "%" + search.trim() + "%",
-        },
-      },
-      order: [["frequency", "DESC"]],
-    });
-
-    if (!medicines) {
-      return res.json({ result: "fail", data: null });
+    if (!isValid.input(search)) {
+      throw createError(400, MESSAGE.INVALID_MEDICINE_NAME);
     }
 
-    res.json({ result: "success", data: medicines.slice(0, 10) });
+    const medicines = await medicineService.getMedicineNames(search);
+
+    if (!medicines) {
+      return res.status(200).json({ result: "fail", data: null });
+    }
+
+    res.status(200).json({ result: "success", data: medicines.slice(0, 10) });
   } catch (error) {
-    res.json({ result: "fail" });
+    next(error);
   }
 };

@@ -1,12 +1,13 @@
-const { encode } = require("../../utils/jwt");
-
 const userService = require("../../services/user.service");
+const createError = require("http-errors");
 
-const DAY = 1000 * 60 * 60 * 24;
+const { encode } = require("../../utils/jwt");
+const { NUMBER, MESSAGE, USER_TYPE } = require("../../constants");
+
 const cookieOptions = {
   path: "/",
-  maxAge: DAY,
   httpOnly: true,
+  maxAge: NUMBER.ONEDAY,
 };
 
 exports.login = async (req, res, next) => {
@@ -14,7 +15,7 @@ exports.login = async (req, res, next) => {
     const userInfo = req.body;
 
     if (!userInfo) {
-      return res.json({ result: "fail", message: "Invalid user data" });
+      throw createError(500, MESSAGE.GOOGLE_LOGIN_FAILED);
     }
 
     const user = await userService.findUser(userInfo);
@@ -34,7 +35,7 @@ exports.login = async (req, res, next) => {
     const token = encode(newUser.dataValues);
     res.cookie("token", token, cookieOptions);
 
-    res.status(200).json({
+    res.status(201).json({
       result: "success",
       data: newUser.dataValues,
     });
@@ -45,22 +46,34 @@ exports.login = async (req, res, next) => {
 
 exports.logout = async (req, res, next) => {
   res.clearCookie("token");
-  res.json({ result: "success", message: "logout success" });
+  res.status(200).json({ result: "success", message: MESSAGE.LOGOUT_SUCCESS });
 };
 
 exports.authorize = async (req, res, next) => {
   const { user_type, user_id } = req.userInfo;
 
-  if (user_type === "pharmacist") {
-    const pharmacyInformation = await userService.findPharmacistInfo(user_id);
+  try {
+    if (user_type === USER_TYPE.PHARMACIST) {
+      const pharmacyInformation = await userService.findPharmacistInfo(user_id);
 
-    return res.json({
-      result: "success",
-      message: "authorized",
-      data: req.userInfo,
-      pharmacyInformation,
-    });
+      return res.status(200).json({
+        result: "success",
+        message: MESSAGE.AUTHORIZED,
+        data: req.userInfo,
+        pharmacyInformation,
+      });
+    }
+
+    if (user_type === USER_TYPE.PATIENT) {
+      return res.status(200).json({
+        result: "success",
+        message: MESSAGE.AUTHORIZED,
+        data: req.userInfo,
+      });
+    }
+
+    res.status(400).json({ message: MESSAGE.INVALID_USER_DATA });
+  } catch (error) {
+    next(error);
   }
-
-  res.json({ result: "success", message: "authorized", data: req.userInfo });
 };

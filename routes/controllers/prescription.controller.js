@@ -1,3 +1,6 @@
+const createError = require("http-errors");
+
+const { NUMBER, USER_TYPE } = require("../../constants");
 const userService = require("../../services/user.service");
 const historyService = require("../../services/history.service");
 const medicineService = require("../../services/medicine.service");
@@ -14,17 +17,23 @@ exports.postPrescription = async (req, res, next) => {
       patient_id,
       pharmacistId,
       duration || 3,
-      description || "description",
+      description,
       doseTimes
     );
 
-    await userService.dequeue(patient_id);
-    await userService.registerPushNotification(patient_id, duration, doseTimes);
-    await medicineService.increaseFrequency(medicines);
-    await medicineService.createMany(medicines, prescriptionId);
-    await historyService.createDoseHistory(patient_id, prescriptionId, duration);
-
-    res.json({ result: "success" });
+    Promise.all([
+      userService.dequeue(patient_id),
+      userService.registerPushNotification(patient_id, duration, doseTimes),
+      medicineService.increaseFrequency(medicines),
+      medicineService.createMany(medicines, prescriptionId),
+      historyService.createDoseHistory(patient_id, prescriptionId, duration),
+    ])
+      .then(() => {
+        return res.json({ result: "success" });
+      })
+      .catch(() => {
+        throw createError(500, "prescription details are invalid");
+      });
   } catch (error) {
     next(error);
   }
@@ -35,21 +44,17 @@ exports.getPrescriptionList = async (req, res, next) => {
     const { userInfo } = req;
     const { user_id } = req.userInfo;
 
-    if (!userInfo) {
-      return res.json({ result: "fail", message: "unauthorized" });
-    }
-
-    if (userInfo.user_type === "patient") {
+    if (userInfo.user_type === USER_TYPE.PATIENT) {
       const prescriptions = await prescriptionService.getPatientPrescriptionList(user_id);
 
       return res.json({ result: "success", data: prescriptions });
     }
 
-    if (userInfo.user_type === "pharmacist") {
+    if (userInfo.user_type === USER_TYPE.PHARMACIST) {
       const page = parseInt(req.query.page, 10) || 0;
 
       const prescriptions = await prescriptionService.getPharmacistPrescriptionList(userInfo, page);
-      const hasMoreData = prescriptions.length === 7;
+      const hasMoreData = prescriptions.length === NUMBER.PRESCRIPTION_PER_PAGE;
 
       res.json({ result: "success", prescriptions, hasMoreData });
     }
@@ -74,9 +79,9 @@ exports.updateAlarm = async (req, res, next) => {
   const { prescriptionId } = req.params;
 
   try {
-    const result = await prescriptionService.toggleAlarm(prescriptionId);
+    await prescriptionService.toggleAlarm(prescriptionId);
 
-    res.json({ result: "success", data: result });
+    res.json({ result: "success" });
   } catch (error) {
     res.json({ result: "fail" });
   }

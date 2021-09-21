@@ -1,3 +1,4 @@
+const { MESSAGE } = require("../../constants");
 const queueService = require("../../services/queue.service");
 const userService = require("../../services/user.service");
 
@@ -6,12 +7,8 @@ exports.registerQueue = async (req, res, next) => {
     const { userInfo } = req;
     const { userId } = req.body;
 
-    if (!userInfo) {
-      return res.json({ result: "fail", message: "unauthorized" });
-    }
-
     if (!userId) {
-      return res.json({ result: "fail", message: "invalid access" });
+      throw createError(401, MESSAGE.INVALID_ACCESS);
     }
 
     const pharmacistId = await userService.findPharmacistId(userId);
