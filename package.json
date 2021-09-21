@@ -20,6 +20,7 @@
     "morgan": "~1.9.1",
     "mysql2": "^2.3.0",
     "node-fetch": "^3.0.0",
+    "uuid-validate": "0.0.3",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {

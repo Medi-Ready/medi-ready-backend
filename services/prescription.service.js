@@ -1,3 +1,4 @@
+const { NUMBER } = require("../constants");
 const {
   User,
   Patient,
@@ -45,7 +46,6 @@ exports.getPharmacistPrescriptionList = async (userInfo, page) => {
   try {
     const userId = userInfo.user_id;
     const pharmacistId = await userService.findPharmacistId(userId);
-    const PAGE_LIMIT = 7;
 
     const prescriptions = await Prescription.findAll({
       where: { fk_pharmacist_id: pharmacistId },
@@ -56,8 +56,8 @@ exports.getPharmacistPrescriptionList = async (userInfo, page) => {
         { model: Patient, include: [{ model: User }] },
       ],
       order: [[DoseHistory, "date", "DESC"]],
-      limit: PAGE_LIMIT,
-      offset: PAGE_LIMIT * page,
+      limit: NUMBER.PRESCRIPTION_PER_PAGE,
+      offset: NUMBER.PRESCRIPTION_PER_PAGE * page,
     });
 
     return prescriptions;
@@ -128,8 +128,6 @@ exports.toggleAlarm = async (id) => {
         },
       }
     );
-
-    return !previousValue;
   } catch (error) {
     throw error;
   }
@@ -153,8 +151,6 @@ exports.toggleIsDeleted = async (id) => {
         },
       }
     );
-
-    return !previousValue;
   } catch (error) {
     throw error;
   }

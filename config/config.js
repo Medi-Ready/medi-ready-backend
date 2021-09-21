@@ -3,7 +3,7 @@ require("dotenv").config();
 const env = process.env;
 
 const development = {
-  username: env.MYSQL_USERNAME || "vaco",
+  username: env.MYSQL_USERNAME || "root",
   password: env.MYSQL_PASSWORD,
   database: env.MYSQL_DATABASE,
   host: env.MYSQL_HOST,
@@ -12,7 +12,7 @@ const development = {
 };
 
 const production = {
-  username: env.MYSQL_USERNAME,
+  username: env.MYSQL_USERNAME || "vaco",
   password: env.MYSQL_PASSWORD,
   database: env.MYSQL_DATABASE,
   host: env.MYSQL_HOST,
@@ -20,12 +20,4 @@ const production = {
   logging: false,
 };
 
-const test = {
-  username: env.MYSQL_USERNAME,
-  password: env.MYSQL_PASSWORD,
-  database: env.MYSQL_DATABASE,
-  host: env.MYSQL_HOST,
-  dialect: "mysql",
-};
-
-module.exports = { development, production, test };
+module.exports = { development, production };

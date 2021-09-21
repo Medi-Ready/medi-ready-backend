@@ -14,7 +14,7 @@ connectSequelize();
 const index = require("./routes/index");
 
 app.get("/", (req, res) => {
-  res.json({ result: "success" });
+  res.status(200).json({ result: "success" });
 });
 
 app.use("/api", index);

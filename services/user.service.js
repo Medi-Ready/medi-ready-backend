@@ -1,9 +1,7 @@
+const { USER_TYPE } = require("../constants");
 const { User, Patient, Pharmacist, Queue, Alarm } = require("../models");
 
 const fetchToNotificationServer = require("../utils/sendNotifications");
-
-const PHARMACIST = "pharmacist";
-const PATIENT = "patient";
 
 exports.findUser = async (userInfo) => {
   const { email, name, user_type } = userInfo;
@@ -32,7 +30,7 @@ exports.createUser = async (userInfo) => {
       picture,
     });
 
-    if (user_type === PATIENT) {
+    if (user_type === USER_TYPE.PATIENT) {
       const patient = await Patient.create({
         fk_user_id: user.dataValues.user_id,
       });
@@ -42,7 +40,7 @@ exports.createUser = async (userInfo) => {
       });
     }
 
-    if (user_type === PHARMACIST) {
+    if (user_type === USER_TYPE.PHARMACIST) {
       const pharmacist = await Pharmacist.create({
         fk_user_id: user.dataValues.user_id,
       });

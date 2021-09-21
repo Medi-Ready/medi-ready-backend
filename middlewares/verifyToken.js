@@ -1,16 +1,18 @@
+const createError = require("http-errors");
+const { MESSAGE } = require("../constants");
 const { decode } = require("../utils/jwt");
 const userService = require("../services/user.service");
 
 const verifyToken = async (req, res, next) => {
   if (!req.headers.cookie) {
-    return res.json({ result: "fail", message: "Unauthorized user" });
+    return res.status(200).json({ result: "fail" });
   }
 
   const token = req.headers.cookie.split("=")[1];
 
   try {
     if (!token) {
-      return res.json({ result: "fail", message: "Unauthorized user" });
+      throw createError(401, MESSAGE.UNAUTHORIZED_USER);
     }
 
     const userInfo = decode(token);
@@ -22,7 +24,7 @@ const verifyToken = async (req, res, next) => {
       return next();
     }
 
-    res.json({ result: "fail", message: "Unauthorized user" });
+    throw createError(401, MESSAGE.UNAUTHORIZED_USER);
   } catch (error) {
     next(error);
   }
