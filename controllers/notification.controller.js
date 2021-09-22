@@ -1,3 +1,5 @@
+const createError = require("http-errors");
+
 const { MESSAGE } = require("../constants");
 const userService = require("../services/user.service");
 
@@ -12,7 +14,7 @@ exports.updatePushNotificationToken = async (req, res, next) => {
 
     await userService.updateNotificationToken(user_id, notificationToken);
 
-    res.json({ result: "success" });
+    res.status(200).json({ result: "success" });
   } catch (error) {
     next(error);
   }

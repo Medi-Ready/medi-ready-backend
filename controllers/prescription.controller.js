@@ -29,7 +29,7 @@ exports.postPrescription = async (req, res, next) => {
       historyService.createDoseHistory(patient_id, prescriptionId, duration),
     ])
       .then(() => {
-        return res.json({ result: "success" });
+        return res.status(200).json({ result: "success" });
       })
       .catch(() => {
         throw createError(500, "prescription details are invalid");
@@ -47,7 +47,7 @@ exports.getPrescriptionList = async (req, res, next) => {
     if (userInfo.user_type === USER_TYPE.PATIENT) {
       const prescriptions = await prescriptionService.getPatientPrescriptionList(user_id);
 
-      return res.json({ result: "success", data: prescriptions });
+      return res.status(200).json({ result: "success", data: prescriptions });
     }
 
     if (userInfo.user_type === USER_TYPE.PHARMACIST) {
@@ -56,7 +56,7 @@ exports.getPrescriptionList = async (req, res, next) => {
       const prescriptions = await prescriptionService.getPharmacistPrescriptionList(userInfo, page);
       const hasMoreData = prescriptions.length === NUMBER.PRESCRIPTION_PER_PAGE;
 
-      res.json({ result: "success", prescriptions, hasMoreData });
+      res.status(200).json({ result: "success", prescriptions, hasMoreData });
     }
   } catch (error) {
     next(error);
@@ -69,7 +69,7 @@ exports.getPrescriptionDetails = async (req, res, next) => {
   try {
     const details = await prescriptionService.getDetails(prescriptionId);
 
-    res.json({ result: "success", data: details });
+    res.status(200).json({ result: "success", data: details });
   } catch (error) {
     res.json({ result: "fail" });
   }
@@ -81,7 +81,7 @@ exports.updateAlarm = async (req, res, next) => {
   try {
     await prescriptionService.toggleAlarm(prescriptionId);
 
-    res.json({ result: "success" });
+    res.status(200).json({ result: "success" });
   } catch (error) {
     res.json({ result: "fail" });
   }
@@ -93,7 +93,7 @@ exports.deletePrescription = async (req, res, next) => {
   try {
     await prescriptionService.toggleIsDeleted(prescriptionId);
 
-    res.json({ result: "success" });
+    res.status(200).json({ result: "success" });
   } catch (error) {
     res.json({ result: "fail" });
   }

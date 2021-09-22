@@ -1,4 +1,6 @@
+const createError = require("http-errors");
 const { MESSAGE } = require("../constants");
+
 const queueService = require("../services/queue.service");
 const userService = require("../services/user.service");
 
@@ -20,7 +22,7 @@ exports.registerQueue = async (req, res, next) => {
 
     await queueService.updateQueue(patientId, queueId);
 
-    res.json({ result: "success" });
+    res.status(200).json({ result: "success" });
   } catch (error) {
     next(error);
   }
@@ -35,7 +37,7 @@ exports.getQueue = async (req, res, next) => {
 
     const people = await queueService.getQueueList(queueId);
 
-    res.json({ result: "success", people });
+    res.status(200).json({ result: "success", people });
   } catch (error) {
     next(error);
   }

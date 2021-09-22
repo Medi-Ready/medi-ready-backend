@@ -7,7 +7,7 @@ exports.updateDoseHistory = async (req, res, next) => {
 
     await historyService.updateHistory(doseHistoryId, doseHistory);
 
-    res.json({ result: "success" });
+    res.status(200).json({ result: "success" });
   } catch (error) {
     next(error);
   }

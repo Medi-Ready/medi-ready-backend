@@ -9,7 +9,7 @@ exports.updateInformation = async (req, res, next) => {
 
     await userService.changePharmacistSetting(pharmacistId, name, address);
 
-    res.json({ result: "success" });
+    res.status(200).json({ result: "success" });
   } catch (error) {
     next(error);
   }
@@ -21,7 +21,7 @@ exports.getInformation = async (req, res, next) => {
 
     const data = await userService.findPharmacistInfo(user_id);
 
-    res.json({ result: "success", data });
+    res.status(200).json({ result: "success", data });
   } catch (error) {
     next(error);
   }
@@ -33,10 +33,9 @@ exports.updateAlarmTime = async (req, res, next) => {
     const { alarmTime } = req.body;
 
     const patientId = await userService.findPatientId(user_id);
-
     await userService.changeAlarmSettings(patientId, alarmTime);
 
-    res.json({ result: "success", data: alarmTime });
+    res.status(200).json({ result: "success", data: alarmTime });
   } catch (error) {
     next(error);
   }
@@ -48,7 +47,7 @@ exports.getAlarmTime = async (req, res, next) => {
   try {
     const alarm = await userService.findAlarmTime(userId);
 
-    res.json({ result: "success", data: alarm });
+    res.status(200).json({ result: "success", data: alarm });
   } catch (error) {
     next(error);
   }
