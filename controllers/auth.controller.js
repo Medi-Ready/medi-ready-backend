@@ -14,10 +14,6 @@ exports.login = async (req, res, next) => {
   try {
     const userInfo = req.body;
 
-    if (!userInfo) {
-      throw createError(500, MESSAGE.GOOGLE_LOGIN_FAILED);
-    }
-
     const user = await userService.findUser(userInfo);
 
     if (user) {

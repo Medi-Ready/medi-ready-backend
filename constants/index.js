@@ -9,7 +9,6 @@ const USER_TYPE = {
 };
 
 const MESSAGE = {
-  GOOGLE_LOGIN_FAILED: "login failed",
   INVALID_USER_DATA: "invalid user information",
   INVALID_PRESCRIPTION_DATA: "invalid prescription data",
   INVALID_PRESCRIPTION_ID: "invalid prescription id",
