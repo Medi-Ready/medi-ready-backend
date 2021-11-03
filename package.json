@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": " nodemon ./bin/www",
-    "test": "mocha"
+    "dev": "nodemon ./bin/www",
+    "test": "nyc mocha"
   },
   "engines": {
     "node": "14.16.0"
@@ -21,8 +21,9 @@
     "morgan": "~1.9.1",
     "mysql2": "^2.3.0",
     "node-fetch": "^3.0.0",
-    "uuid-validate": "0.0.3",
-    "sequelize": "^6.6.5"
+    "nyc": "^15.1.0",
+    "sequelize": "^6.6.5",
+    "uuid-validate": "0.0.3"
   },
   "devDependencies": {
     "chai": "^4.3.4",
